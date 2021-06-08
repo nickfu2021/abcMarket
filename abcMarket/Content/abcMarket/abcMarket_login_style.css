@@ -1,0 +1,22 @@
+body {
+    background-color: rgba(109, 108, 106, 0.5);
+}
+
+
+.ml-auto {
+    margin-left: auto;
+}
+
+.container form {
+    height: 300px;
+    width: 300px;
+}
+
+.login input {
+    border-radius: 20px;
+}
+
+.login button {
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgba(50, 144, 233, 0.4);
+}

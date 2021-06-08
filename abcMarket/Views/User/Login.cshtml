@@ -1,0 +1,31 @@
+﻿@model cvmLogin
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<div style="position:absolute;top:50%;left:50%;margin-left:-150px;margin-top:-300px;z-index:-99;">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @*<form class="login mx-auto">*@
+        <h1 style="text-align: center; margin: 50px;">登入Login</h1>
+        <div class="mx-auto mb-5" style="text-align: center; color: rgba(39, 147, 236, 0.945);"><i class="fa fa-user-circle-o" style="font-size:100px;"></i></div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">E-mail</label>
+            @*<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">*@
+            @Html.TextBoxFor(model => model.User_Email, new { @class = "form-control", @style = "border-radius: 20px;" })
+            @Html.ValidationMessageFor(model => model.User_Email, "", new { @class = "text-danger" })
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">密碼</label>
+            @*<input type="password" class="form-control" id="exampleInputPassword1">*@
+            @Html.TextBoxFor(model => model.Password, new { @class = "form-control", @style = "border-radius: 20px;", @type = "password" })
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+        </div>
+        <button type="submit" class="btn btn-primary mt-2" style="border-radius: 10px; box-shadow: 3px 3px 10px rgba(50, 144, 233, 0.4);">登入</button>
+        <a href="/User/ForgetPassword" role="button" style="margin-left: 50%;">忘記密碼?</a>
+        @*</form>*@
+    }
+</div>

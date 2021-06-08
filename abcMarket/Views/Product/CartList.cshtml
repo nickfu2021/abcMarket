@@ -1,0 +1,85 @@
+﻿@model IEnumerable<abcMarket.Models.Carts>
+
+@{
+    ViewBag.Title = "CartList";
+    string str_image_url = "";
+    string str_qty_name = "";
+    int index = 0;
+}
+
+<section class="pt-5 pb-5">
+    <div class="container">
+        <div class="row w-100">
+            <div class="col-lg-12 col-md-12 col-12">
+                <h3 class="display-5 mb-2 text-center">購物車明細</h3>
+                <p class="mb-5 text-center">
+                    <i class="text-info font-weight-bold">@Cart.Counts</i> 項商品
+                </p>
+                <table id="shoppingCart" class="table table-condensed table-responsive">
+                    <thead>
+                        <tr>
+                            <th style="width:60%">購買商品</th>
+                            <th style="width:12%">單價</th>
+                            <th style="width:20%">數量</th>
+                            <th style="width:6%"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            index += 1;
+                            str_qty_name = "Carts[" + index + "].qty";
+                            str_image_url = Shop.GetProductImage(item.product_no);
+                            <tr>
+                                <td data-th="Product">
+                                    <div class="row">
+                                        <div class="col-md-3 text-left">
+                                            <img src="@str_image_url" alt="@item.product_no" class="img-fluid d-none d-md-block rounded mb-2 shadow ">
+                                        </div>
+                                        <div class="col-md-9 text-left mt-sm-2">
+                                            <h6>@item.product_name</h6>
+                                            <p class="font-weight-light">@item.product_spec</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td data-th="Price">$@item.price</td>
+                                <td data-th="Quantity" style="text-wrap:none">
+                                    <div>
+                                        <a class="btn" href="/Product/CartMinus/@item.rowid">
+                                            <div class="btn-minus" style="float:right"><span class="fa fa-minus"></span></div>
+                                        </a>
+                                        @item.qty
+                                        <a class="btn" href="/Product/CartPlus/@item.rowid">
+                                            <div class="btn-plus" style="float:left"><span class="fa fa-plus"></span></div>
+                                        </a>
+                                    </div>
+                                </td>
+                                <td class="actions" data-th="">
+                                    <div class="text-right">
+                                        <a href="/Product/CartDelete/@item.rowid" class="btn btn-white border-secondary bg-white btn-md mb-2">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <div class="float-right text-right">
+                    <h4>合計金額:</h4>
+                    <h1>$@Cart.Totals.ToString("#,##0")</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4 d-flex align-items-center">
+            <div class="col-sm-6 order-md-2 text-right">
+                <a href="/Product/Checkout" class="btn btn-primary mb-4 btn-lg pl-5 pr-5">結帳</a>
+            </div>
+            <div class="col-sm-6 mb-3 mb-m-1 order-md-1 text-md-left">
+                <a href="/Home/Index" class="btn btn-primary">
+                    <i class="fas fa-arrow-left mr-2"></i> 繼續購物
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
