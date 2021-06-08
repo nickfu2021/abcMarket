@@ -259,6 +259,7 @@
     <Compile Include="Models\ViewModel\cvmOrderDetail.cs" />
     <Compile Include="Models\ViewModel\cvmOrders.cs" />
     <Compile Include="Models\ViewModel\cvmRegister.cs" />
+    <Compile Include="Models\ViewModel\cvmResetForgetPassword.cs" />
     <Compile Include="Models\ViewModel\cvmResetPassword.cs" />
     <Compile Include="Models\ViewModel\cvmSaleRank.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1422,6 +1423,7 @@
     <Content Include="Views\Product\Search.cshtml" />
     <Content Include="Views\User\ForgetPassword.cshtml" />
     <Content Include="Views\User\ForgetEmailResult.cshtml" />
+    <Content Include="Views\User\ResetForgetPassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

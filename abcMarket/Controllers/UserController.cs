@@ -211,9 +211,6 @@ namespace abcMarket.Controllers
             ViewBag.Status = Status;
             return View();
         }
-
-
-
         [HttpGet]
         public ActionResult ForgetPassword()
         {
@@ -225,19 +222,20 @@ namespace abcMarket.Controllers
         {
             if (!ModelState.IsValid) return View(model);
 
-            string str_password = "";
-            var user = db.Users.Where(m => m.user_email == model.user_email).FirstOrDefault();
-            if (user != null)
-            {
-                //密碼加密
-                using (Cryptographys cryp = new Cryptographys())
-                { str_password = cryp.SHA256Encode(model.user_email); }
+            //string str_password = "";
+            //var user = db.Users.Where(m => m.user_email == model.user_email).FirstOrDefault();
+            //if (user != null)
+            //{
+            //    //密碼加密
+            //    using (Cryptographys cryp = new Cryptographys())
+            //    { str_password = cryp.SHA256Encode(model.user_email); }
 
-                user.password = str_password;
-                db.Configuration.ValidateOnSaveEnabled = false;
-                db.SaveChanges();
-                db.Configuration.ValidateOnSaveEnabled = true;
-            }
+            //    user.password = str_password;
+            //    db.Configuration.ValidateOnSaveEnabled = false;
+            //    db.SaveChanges();
+            //    db.Configuration.ValidateOnSaveEnabled = true;
+            //}
+
             SendForgetPasswordMail(model.user_email);       
             return RedirectToAction("ForgetEmailResult");
         }
@@ -250,14 +248,15 @@ namespace abcMarket.Controllers
         private string SendForgetPasswordMail(string userEmail)
         {
             string str_app_name = "abcMarket";
-            //var str_url = string.Format("/User/VerifyEmail/{0}", varifyCode);
-            //var str_link = Request.Url.AbsoluteUri.Replace(Request.Url.PathAndQuery, str_url);
+            var str_url = string.Format("/User/ResetForgetPassword");
+            var str_link = Request.Url.AbsoluteUri.Replace(Request.Url.PathAndQuery, str_url);
             string str_subject = str_app_name + " - 密碼重設通知!!";
-            string str_body = "<br/><br/>";
+            string str_body = "";
 
-            str_body += "您的密碼已重設,下次登入請使用'電子郵件'為密碼!!<br/><br/>";
+            str_body += "很高興告訴您，您的 " + str_app_name + " 密碼重設要求已允許. <br/>";
+            str_body += "請按下下方連結,重新設您的新密碼!!<br/><br/>";
             str_body += "<br/><br/>";
-            //str_body += "<a href='" + str_link + "'>" + str_link + "</a> ";
+            str_body += "<a href='" + str_link + "'>" + str_link + "</a> ";
             str_body += "本信件由電腦系統自動寄出,請勿回信!!<br/><br/>";
             str_body += string.Format("{0} 系統開發團隊敬上", str_app_name);
 
@@ -269,6 +268,36 @@ namespace abcMarket.Controllers
                 gmail.Send();
                 return gmail.MessageText;
             }
+        }
+        [HttpGet]
+        public ActionResult ResetForgetPassword()
+        {
+            cvmResetForgetPassword model = new cvmResetForgetPassword()
+            {
+                user_email = UserAccount.UserEmail,
+                NewPassword = "",
+                ConfirmPassword = ""
+            };
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult ResetForgetPassword(cvmResetForgetPassword model)
+        {
+            if (!ModelState.IsValid) return View(model);
+            string str_password = "";
+            var user = db.Users.Where(m => m.user_email == model.user_email).FirstOrDefault();
+            if (user != null)
+            {
+                //密碼加密
+                using (Cryptographys cryp = new Cryptographys())
+                { str_password = cryp.SHA256Encode(model.NewPassword); }
+
+                user.password = str_password;
+                db.Configuration.ValidateOnSaveEnabled = false;
+                db.SaveChanges();
+                db.Configuration.ValidateOnSaveEnabled = true;
+            }
+            return RedirectToAction("RedirectToUserPage");
         }
     }
 }
