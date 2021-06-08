@@ -250,11 +250,14 @@ namespace abcMarket.Controllers
         private string SendForgetPasswordMail(string userEmail)
         {
             string str_app_name = "abcMarket";
+            //var str_url = string.Format("/User/VerifyEmail/{0}", varifyCode);
+            //var str_link = Request.Url.AbsoluteUri.Replace(Request.Url.PathAndQuery, str_url);
             string str_subject = str_app_name + " - 密碼重設通知!!";
             string str_body = "<br/><br/>";
 
             str_body += "您的密碼已重設,下次登入請使用'電子郵件'為密碼!!<br/><br/>";
             str_body += "<br/><br/>";
+            //str_body += "<a href='" + str_link + "'>" + str_link + "</a> ";
             str_body += "本信件由電腦系統自動寄出,請勿回信!!<br/><br/>";
             str_body += string.Format("{0} 系統開發團隊敬上", str_app_name);
 
