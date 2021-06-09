@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using abcMarket.Models;
+using System.Drawing;
+using System.IO;
+using System.Text;
 
 namespace abcMarket.Controllers
 {
@@ -20,6 +23,7 @@ namespace abcMarket.Controllers
                 Password = "",
                 Remember = false
             };
+
             return View(model);
         }
 
@@ -48,6 +52,7 @@ namespace abcMarket.Controllers
 
             return RedirectToAction("RedirectToUserPage");
         }
+
 
         public ActionResult LogOut()
         {
@@ -221,23 +226,17 @@ namespace abcMarket.Controllers
         public ActionResult ForgetPassword(cvmForgetPassword model)
         {
             if (!ModelState.IsValid) return View(model);
-
-            //string str_password = "";
-            //var user = db.Users.Where(m => m.user_email == model.user_email).FirstOrDefault();
-            //if (user != null)
-            //{
-            //    //密碼加密
-            //    using (Cryptographys cryp = new Cryptographys())
-            //    { str_password = cryp.SHA256Encode(model.user_email); }
-
-            //    user.password = str_password;
-            //    db.Configuration.ValidateOnSaveEnabled = false;
-            //    db.SaveChanges();
-            //    db.Configuration.ValidateOnSaveEnabled = true;
-            //}
-
-            SendForgetPasswordMail(model.user_email);       
-            return RedirectToAction("ForgetEmailResult");
+            string code = model.code;
+            if (code == TempData["code"].ToString())
+            {
+                SendForgetPasswordMail(model.user_email);
+                return RedirectToAction("ForgetEmailResult");
+            }
+            else
+            {
+                ViewData["Message"] = "驗證碼錯誤!!";
+                return View(model);
+            }
         }
 
         [HttpGet]
@@ -299,5 +298,57 @@ namespace abcMarket.Controllers
             }
             return RedirectToAction("RedirectToUserPage");
         }
+        private string RandomCode(int length)
+        {
+            string s = "0123456789zxcvbnmasdfghjklqwertyuiop";
+            StringBuilder sb = new StringBuilder();
+            Random rand = new Random();
+            int index;
+            for (int i = 0; i < length; i++)
+            {
+                index = rand.Next(0, s.Length);
+                sb.Append(s[index]);
+            }
+            return sb.ToString();
+        }
+
+        private void PaintInterLine(Graphics g, int num, int width, int height)
+        {
+            Random r = new Random();
+            int startX, startY, endX, endY;
+            for (int i = 0; i < num; i++)
+            {
+                startX = r.Next(0, width);
+                startY = r.Next(0, height);
+                endX = r.Next(0, width);
+                endY = r.Next(0, height);
+                g.DrawLine(new Pen(Brushes.Red), startX, startY, endX, endY);
+            }
+        }
+
+        public ActionResult GetValidateCode()
+        {
+            byte[] data = null;
+            string code = RandomCode(5);
+            TempData["code"] = code;
+            //定義一個畫板
+            MemoryStream ms = new MemoryStream();
+            using (Bitmap map = new Bitmap(100, 40))
+            {
+                //畫筆,在指定畫板畫板上畫圖
+                //g.Dispose();
+                using (Graphics g = Graphics.FromImage(map))
+                {
+                    g.Clear(Color.White);
+                    g.DrawString(code, new Font("黑體", 18.0F), Brushes.Blue, new Point(10, 8));
+                    //繪製干擾線(數字代表幾條)
+                    PaintInterLine(g, 10, map.Width, map.Height);
+                }
+                map.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            }
+            data = ms.GetBuffer();
+            return File(data, "image/jpeg");
+        }
+
     }
 }
