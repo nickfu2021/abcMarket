@@ -5,6 +5,18 @@
     Layout = "~/Views/Shared/_LayoutLogin.cshtml";
 }
 
+
+<style>
+    #demo_img {
+        position: absolute;
+        margin-top: -30px;
+        margin-left: 250px;
+        width: 25px;
+        height: 25px;
+    }
+
+</style>
+
 <div style="position:absolute;top:50%;left:50%;margin-left:-150px;margin-top:-300px;z-index:-99;">
     @using (Html.BeginForm())
     {
@@ -20,10 +32,15 @@
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">密碼</label>
-            @*<input type="password" class="form-control" id="exampleInputPassword1">*@
-            @Html.TextBoxFor(model => model.Password, new { @class = "form-control", @style = "border-radius: 20px;", @type = "password" })
+           @* <input type="password" class="form-control" id="exampleInputPassword1">*@
+            @Html.TextBoxFor(model => model.Password, new { @class = "form-control", @style = "border-radius: 20px;", @type = "password", @id = "demo_input" })
             @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            <img id="demo_img" onclick="hideShowPsw()" src="@Url.Content("~/Images/app/Password/visible.svg")">
+
+            @*<input type="checkbox" onchange="document.getElementById('password').type = this.checked ? 'text' : 'password'">顯示密碼*@
         </div>
+
+
         <button type="submit" class="btn btn-primary mt-2" style="border-radius: 10px; box-shadow: 3px 3px 10px rgba(50, 144, 233, 0.4);">登入</button>
         <a href="/User/ForgetPassword" role="button" style="margin-left: 50%;">忘記密碼?</a>
         @*</form>*@
@@ -31,4 +48,21 @@
 </div>
 
 
-@* 新功能 *@
+
+
+<script type="text/javascript">
+
+    var demoImg = document.getElementById("demo_img");
+    var demoInput = document.getElementById("demo_input");
+
+    function hideShowPsw() {
+        if (demoInput.type == "password") {
+            demoInput.type = "text";
+            demo_img.src = "@Url.Content("~/Images/app/Password/invisible.png")";
+        } else {
+            demoInput.type = "password";
+            demo_img.src = "@Url.Content("~/Images/app/Password/visible.svg")";
+        }
+    }
+</script>
+

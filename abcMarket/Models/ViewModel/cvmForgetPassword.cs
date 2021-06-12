@@ -8,8 +8,10 @@ using abcMarket.Models;
 
 public class cvmForgetPassword
 {
-    [Display(Name = "使用者電子信箱*")]
-    [Required(ErrorMessage ="電子信箱不可空白!!")]
+    [Required(ErrorMessage = "電子信箱不可空白")]
+    [Display(Name = "電子信箱")]
+    [DisplayFormat(ApplyFormatInEditMode = true, ConvertEmptyStringToNull = false, HtmlEncode = true, NullDisplayText = "請輸入電子信箱")]
+    [EmailAddress(ErrorMessage = "請輸入電子信箱格式")]
     public string user_email { get; set; }
     [Display(Name = "驗證碼")]
     [Required(ErrorMessage = "驗證碼不可空白!!")]

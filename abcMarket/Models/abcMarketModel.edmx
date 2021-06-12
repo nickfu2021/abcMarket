@@ -29,6 +29,19 @@
           <Property Name="category_no" Type="nvarchar" MaxLength="50" />
           <Property Name="category_name" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="Collect">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_email" Type="nvarchar" MaxLength="50" />
+          <Property Name="product_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="product_name" Type="nvarchar" MaxLength="250" />
+          <Property Name="product_spec" Type="nvarchar" MaxLength="250" />
+          <Property Name="price" Type="int" />
+          <Property Name="amount" Type="int" />
+          <Property Name="create_time" Type="datetime" />
+        </EntityType>
         <EntityType Name="Orders">
           <Key>
             <PropertyRef Name="rowid" />
@@ -156,6 +169,7 @@
         <EntityContainer Name="abcMarketModelStoreContainer">
           <EntitySet Name="Carts" EntityType="Self.Carts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Categorys" EntityType="Self.Categorys" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Collect" EntityType="Self.Collect" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrdersDetail" EntityType="Self.OrdersDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Payments" EntityType="Self.Payments" Schema="dbo" store:Type="Tables" />
@@ -287,6 +301,7 @@
           <EntitySet Name="ProductsProperty" EntityType="abcMarketModel.ProductsProperty" />
           <EntitySet Name="Orders" EntityType="abcMarketModel.Orders" />
           <EntitySet Name="Carts" EntityType="abcMarketModel.Carts" />
+          <EntitySet Name="Collect" EntityType="abcMarketModel.Collect" />
         </EntityContainer>
         <EntityType Name="ProductsProperty">
           <Key>
@@ -329,6 +344,19 @@
           <Property Name="product_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="product_spec" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="qty" Type="Int32" />
+          <Property Name="price" Type="Int32" />
+          <Property Name="amount" Type="Int32" />
+          <Property Name="create_time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Collect">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="product_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="product_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="product_spec" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="price" Type="Int32" />
           <Property Name="amount" Type="Int32" />
           <Property Name="create_time" Type="DateTime" Precision="3" />
@@ -495,6 +523,20 @@
                 <ScalarProperty Name="product_no" ColumnName="product_no" />
                 <ScalarProperty Name="user_email" ColumnName="user_email" />
                 <ScalarProperty Name="lot_no" ColumnName="lot_no" />
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Collect">
+            <EntityTypeMapping TypeName="abcMarketModel.Collect">
+              <MappingFragment StoreEntitySet="Collect">
+                <ScalarProperty Name="create_time" ColumnName="create_time" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="product_spec" ColumnName="product_spec" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="product_no" ColumnName="product_no" />
+                <ScalarProperty Name="user_email" ColumnName="user_email" />
                 <ScalarProperty Name="rowid" ColumnName="rowid" />
               </MappingFragment>
             </EntityTypeMapping>

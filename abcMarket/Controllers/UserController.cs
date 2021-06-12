@@ -109,7 +109,7 @@ namespace abcMarket.Controllers
         public ActionResult RedirectToUserPage()
         {
             if (UserAccount.RoleNo == AppEnum.enUserRole.Admin) return RedirectToAction("Index", "Admin", new { area = "Admin" });
-            if (UserAccount.RoleNo == AppEnum.enUserRole.Member) return RedirectToAction("Index", "Member", new { area = "Member" });
+            //if (UserAccount.RoleNo == AppEnum.enUserRole.Member) return RedirectToAction("Index", "Member", new { area = "Member" });
             //if (UserAccount.RoleNo == AppEnum.enUserRole.Vendor) return RedirectToAction("Index", "Vendor", new { area = "Vendor" });
             return RedirectToAction("Index", "Home");
         }
@@ -283,6 +283,7 @@ namespace abcMarket.Controllers
         public ActionResult ResetForgetPassword(cvmResetForgetPassword model)
         {
             if (!ModelState.IsValid) return View(model);
+
             string str_password = "";
             var user = db.Users.Where(m => m.user_email == model.user_email).FirstOrDefault();
             if (user != null)

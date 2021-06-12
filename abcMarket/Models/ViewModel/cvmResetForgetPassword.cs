@@ -7,7 +7,10 @@ using abcMarket.Models;
 
 public class cvmResetForgetPassword
 {
+    [Required(ErrorMessage = "電子信箱不可空白")]
     [Display(Name = "使用者電子信箱")]
+    [DisplayFormat(ApplyFormatInEditMode = true, ConvertEmptyStringToNull = false, HtmlEncode = true, NullDisplayText = "請輸入電子信箱")]
+    [EmailAddress(ErrorMessage = "請輸入電子信箱格式")]
     public string user_email { get; set; }
 
     [Required(ErrorMessage = "請輸入新的密碼!!")]
