@@ -175,7 +175,6 @@
     <Compile Include="Areas\Member\Controllers\MemberController.cs" />
     <Compile Include="Areas\Member\Controllers\OrdersController.cs" />
     <Compile Include="Areas\Member\MemberAreaRegistration.cs" />
-    <Compile Include="Controllers\CollectController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -211,12 +210,12 @@
     <Compile Include="Models\Categorys.cs">
       <DependentUpon>abcMarketModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Collect.cs">
+    <Compile Include="Models\Collects.cs">
       <DependentUpon>abcMarketModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ModelMetaData\Carts.cs" />
     <Compile Include="Models\ModelMetaData\Categorys.cs" />
-    <Compile Include="Models\ModelMetaData\Collect.cs" />
+    <Compile Include="Models\ModelMetaData\Collects.cs" />
     <Compile Include="Models\ModelMetaData\Companys.cs" />
     <Compile Include="Models\ModelMetaData\Orders.cs" />
     <Compile Include="Models\ModelMetaData\OrdersDetail.cs" />
@@ -1433,6 +1432,8 @@
     <Content Include="Views\User\ForgetPassword.cshtml" />
     <Content Include="Views\User\ForgetEmailResult.cshtml" />
     <Content Include="Views\User\ResetForgetPassword.cshtml" />
+    <Content Include="Views\Shared\_LayoutLite.cshtml" />
+    <Content Include="Views\Product\CollectList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1441,7 +1442,6 @@
     <Folder Include="Areas\Admin\Views\User\" />
     <Folder Include="Areas\Member\Data\" />
     <Folder Include="Areas\Member\Views\Shared\" />
-    <Folder Include="Views\Collect\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

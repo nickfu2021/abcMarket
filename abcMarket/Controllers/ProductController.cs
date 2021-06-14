@@ -214,5 +214,55 @@ namespace abcMarket.Controllers
                 .ToList();
             return View(model);
         }
+
+        [LoginAuthorize(RoleNo = "Member")]
+        public ActionResult CollectList()
+        {
+            using (abcMarketEntities db = new abcMarketEntities())
+            {
+                var data1 = db.Collects.Where(m => m.user_email == UserAccount.UserEmail).ToList();
+                return View(data1);
+            }
+        }
+
+        public ActionResult AddCollect(string product_no)
+        {
+            using (abcMarketEntities db = new abcMarketEntities())
+            {
+                int int_price = Shop.GetProductPrice(product_no);
+
+                var datas = db.Collects
+                .Where(m => m.user_email == UserAccount.UserEmail)
+                .Where(m => m.product_no == product_no)
+                .FirstOrDefault();
+
+                if (datas == null)
+                {
+                    Collects models = new Collects();
+                    models.user_email = UserAccount.UserEmail;
+                    models.create_time = DateTime.Now;
+                    models.product_no = product_no;
+                    models.product_name = Shop.GetProductName(product_no);
+                    models.price = int_price;
+                    db.Collects.Add(models);
+                    db.SaveChanges();
+                }
+            }
+            return RedirectToAction("ProductDetail", "Product", new { id = Shop.ProductNo });
+        }
+
+        [LoginAuthorize(RoleNo = "Member")]
+        public ActionResult CollectDelete(int id)
+        {
+            var data = db.Collects
+                .Where(m => m.rowid == id)
+                .FirstOrDefault();
+            if (data != null)
+            {
+                db.Collects.Remove(data);
+                db.SaveChanges();
+            }
+            return RedirectToAction("CollectList","Product");
+        }
     }
 }

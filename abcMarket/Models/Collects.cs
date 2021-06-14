@@ -12,15 +12,13 @@ namespace abcMarket.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Collect
+    public partial class Collects
     {
         public int rowid { get; set; }
         public string user_email { get; set; }
         public string product_no { get; set; }
         public string product_name { get; set; }
-        public string product_spec { get; set; }
         public Nullable<int> price { get; set; }
-        public Nullable<int> amount { get; set; }
         public Nullable<System.DateTime> create_time { get; set; }
     }
 }

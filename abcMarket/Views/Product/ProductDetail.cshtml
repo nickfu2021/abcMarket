@@ -96,7 +96,10 @@
             </div>
         </div>
         <div class="section" style="padding-bottom: 20px;">
-            <input type="submit" value="加入購物車" class="btn btn-success" onclick="alert('商品已成功加入購物車囉!!')"/>
+
+            <input type="submit" value="加入購物車" class="btn btn-success" onclick="alert('商品已成功加入購物車囉!!')" />
+            <a href="@Url.Action("AddCollect","Product",new { product_no = @Model.product_no})" onclick="alert('商品已加入收藏囉!!')"><span>加入收藏</span></a>
+
         </div>
     }
         </div>

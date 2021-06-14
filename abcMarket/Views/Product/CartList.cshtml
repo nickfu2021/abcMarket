@@ -37,7 +37,9 @@
                                             <img src="@str_image_url" alt="@item.product_no" class="img-fluid d-none d-md-block rounded mb-2 shadow ">
                                         </div>
                                         <div class="col-md-9 text-left mt-sm-2">
-                                            <h6>@item.product_name</h6>
+                                            <a href="/Product/ProductDetail/@item.product_no">
+                                                <h6>@item.product_name</h6>
+                                            </a>
                                             <p class="font-weight-light">@item.product_spec</p>
                                         </div>
                                     </div>

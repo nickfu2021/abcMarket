@@ -37,6 +37,6 @@ namespace abcMarket.Models
         public virtual DbSet<ProductsProperty> ProductsProperty { get; set; }
         public virtual DbSet<Orders> Orders { get; set; }
         public virtual DbSet<Carts> Carts { get; set; }
-        public virtual DbSet<Collect> Collect { get; set; }
+        public virtual DbSet<Collects> Collects { get; set; }
     }
 }

@@ -6,10 +6,10 @@ using System.Web;
 
 namespace abcMarket.Models
 {
-    [MetadataType(typeof(CollectMetaDeta))]
-    public partial class Collect
+    [MetadataType(typeof(CollectsMetaDeta))]
+    public partial class Collects
     {
-        private class CollectMetaDeta
+        private class CollectsMetaDeta
         {
             [Key]
             [Display(Name = "記錄ID")]
@@ -20,12 +20,8 @@ namespace abcMarket.Models
             public string product_no { get; set; }
             [Display(Name ="商品名稱")]
             public string product_name { get; set; }
-            [Display(Name ="商品規格")]
-            public string product_spec { get; set; }
             [Display(Name ="單價")]
             public Nullable<int> price { get; set; }
-            [Display(Name ="金額")]
-            public Nullable<int> amount { get; set; }
             [Display(Name ="建立時間")]
             public Nullable<System.DateTime> create_time { get; set; }
         }
