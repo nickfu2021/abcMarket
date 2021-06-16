@@ -258,7 +258,7 @@
       <DependentUpon>abcMarketModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewModel\cvmForgetPassword.cs" />
-    <Compile Include="Models\ViewModel\cvmHomeIndex.cs" />
+    <Compile Include="Models\ViewModel\cvmWebStore.cs" />
     <Compile Include="Models\ViewModel\cvmLogin.cs" />
     <Compile Include="Models\ViewModel\cvmOrderDetail.cs" />
     <Compile Include="Models\ViewModel\cvmOrders.cs" />
@@ -270,6 +270,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\abcMarket\abcMarket_login_style.css" />
+    <Content Include="Content\abcMarket\abcMarket_Index_style.css" />
+    <Content Include="Content\abcMarket\abcMarket_Lite_style.css" />
     <Content Include="Content\bootstrap-datepicker.css" />
     <Content Include="Content\bootstrap-datepicker.min.css" />
     <Content Include="Content\bootstrap-datepicker.standalone.css" />
@@ -531,6 +533,16 @@
     <Content Include="Content\Site.css" />
     <Content Include="Images\app\background-photo.jpg" />
     <Content Include="Images\app\background-photo2.jpg" />
+    <Content Include="Images\app\Index\bg-000.jpg" />
+    <Content Include="Images\app\Index\bg-001.jpg" />
+    <Content Include="Images\app\Index\img-001.png" />
+    <Content Include="Images\app\Index\img-002.png" />
+    <Content Include="Images\app\Index\img-003.png" />
+    <Content Include="Images\app\Index\img-004.jpg" />
+    <Content Include="Images\app\Index\img-005.jpg" />
+    <Content Include="Images\app\Index\img-006.jpg" />
+    <Content Include="Images\app\login\bg-login.jpg" />
+    <Content Include="Images\app\logo\logo.png" />
     <Content Include="Images\app\Password\invisible.png" />
     <Content Include="Images\app\Password\invisible.svg" />
     <Content Include="Images\app\Password\visible.png" />
@@ -1409,7 +1421,7 @@
     <Content Include="Scripts\shop\bootstrap.min.js.map" />
     <Content Include="Scripts\shop\jquery.min.map" />
     <Content Include="Scripts\shop\jquery.slim.min.map" />
-    <Content Include="Views\Shared\_LayoutLogin_goshopping.cshtml" />
+    <Content Include="Views\Shared\goshopping\_LayoutLogin_goshopping.cshtml" />
     <Content Include="Views\Shared\_LayoutBackend.cshtml" />
     <Content Include="Views\Shared\_PartialMenuAdmin.cshtml" />
     <Content Include="Views\Shared\_PartialMenuMember.cshtml" />
@@ -1422,7 +1434,6 @@
     <Content Include="Views\User\SendEmailResult.cshtml" />
     <Content Include="Views\User\VerifyEmail.cshtml" />
     <Content Include="Views\User\Login_goshopping.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Product\CategoryList.cshtml" />
     <Content Include="Views\Product\ProductDetail.cshtml" />
     <Content Include="Views\Product\CartList.cshtml" />
@@ -1432,8 +1443,12 @@
     <Content Include="Views\User\ForgetPassword.cshtml" />
     <Content Include="Views\User\ForgetEmailResult.cshtml" />
     <Content Include="Views\User\ResetForgetPassword.cshtml" />
-    <Content Include="Views\Shared\_LayoutLite.cshtml" />
+    <Content Include="Views\Shared\goshopping\_LayoutLite_goshopping.cshtml" />
     <Content Include="Views\Product\CollectList.cshtml" />
+    <Content Include="Views\Shared\_LayoutIndex.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutLite.cshtml" />
+    <Content Include="Views\Home\WebStore.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,36 @@
+.ml-auto {
+    margin-left: auto;
+}
+
+.container form {
+    height: 300px;
+    width: 300px;
+}
+
+
+.breadcrumb-item {
+    width: auto;
+    padding: 0px 0px 0px 20px;
+    margin-right: 2px;
+}
+
+    .breadcrumb-item i {
+        font-size: 30px;
+    }
+
+.list-group {
+    margin: 10px;
+}
+
+    .list-group a {
+        opacity: 1.0;
+    }
+
+        .list-group a:hover {
+            opacity: 0.5;
+        }
+
+.card:hover {
+    background-color: #0b8138;
+    transition: 0.5s;
+}

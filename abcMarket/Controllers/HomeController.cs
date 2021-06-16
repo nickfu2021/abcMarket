@@ -11,7 +11,12 @@ namespace abcMarket.Controllers
     {
         public ActionResult Index()
         {
-            cvmHomeIndex model = new cvmHomeIndex()
+            return View();
+        }
+
+        public ActionResult WebStore()
+        {
+            cvmWebStore model = new cvmWebStore()
             {
                 CarouseImages = Shop.GetCarouselImages(),
                 TopProducts = Shop.GetTopProducts()
@@ -80,7 +85,6 @@ namespace abcMarket.Controllers
                 return jdata;
             }
         }
-
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

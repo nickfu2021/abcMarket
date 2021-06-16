@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 
 
-public class cvmHomeIndex
+public class cvmWebStore
 {
     public List<string> CarouseImages { get; set; }
     public List<Products> TopProducts { get; set; }

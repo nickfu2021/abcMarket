@@ -1,116 +1,112 @@
-﻿@model cvmHomeIndex
-
+﻿
 @{
     ViewBag.Title = "首頁";
-    int int_index = 0;
-    string activeClass = "active";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
 }
 
-<p class="CurrentPosition">
-    <table>
-        <tr>
-            <td>
-                目前位置: @Html.ActionLink("首頁", "Index", "Home")
-            </td>
-            <td style="padding-left:10px;">
-                @using (Html.BeginForm("Search", "Product"))
-                {
-                    <input type="text" id="searchText" name="searchText" />
-                    <input type="submit" value="商品搜尋" class="btn btn-primary" />
-                }
-            </td>
-        </tr>
-    </table>
-</p>
-<hr />
-<div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
-    <ol class="carousel-indicators">
-        @if (Model.CarouseImages != null)
-        {
-            foreach (string fileName in Model.CarouseImages)
-            {
-                <li data-target="#carouselExampleIndicators" data-slide-to="@int_index" class="@activeClass"></li>
-                int_index++;
-                activeClass = "";
-            }
-        }
-    </ol>
-    <div class="carousel-inner" role="listbox">
-        @if (Model.CarouseImages != null)
-        {
-            activeClass = "active";
-            foreach (string fileName in Model.CarouseImages)
-            {
-                <div class="carousel-item @activeClass">
-                    <img class="d-block img-fluid" src="@Url.Content(fileName)" alt="CarouseImage">
-                </div>
-                activeClass = "";
-            }
-        }
+<!--圖片輪播-->
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="@Url.Content("~/Images/app/Index/bg-000.jpg")" class="d-block w-100" alt="..." style="height: 750px;width:200px;">
+        </div>
+        <div class="carousel-item">
+            <img src="@Url.Content("~/Images/app/Index/bg-001.jpg")" class="d-block w-100" alt="..." style="height: 750px;width:200px;">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">往前</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">往後</span>
-    </a>
+        <span class="visually-hidden">Next</span>
+    </button>
 </div>
-
-<div class="row">
-    @{
-        foreach (var item in Model.TopProducts)
-        {
-            string str_url = Shop.GetProductImage(item.product_no);
-
-            <div class="col-lg-3 col-md-6 mb-3">
-                <div class="card h-100">
-                    <a href="/Product/ProductDetail/@item.product_no">
-                        <img class="card-img-top" src="@str_url" alt="@item.product_name">
-                    </a>
-                    <div class="card-body">
-                        <a href="/Product/ProductDetail/@item.product_no">
-                            <h6 class="card-title">
-                                @item.product_name
-                            </h6>
-                        </a>
-                        @if (item.price_discont != null && item.price_discont > 0)
-                        {
-                            <h6 style="color:red;">
-                                <del>
-                                    $@item.price_sale
-                                </del>&nbsp;
-                                $@item.price_discont
-                            </h6>
-                        }
-                        else
-                        {
-                            <h6 style="color:red;">
-                                $@item.price_sale
-                            </h6>
-                        }
-                        <p>
-                            @Html.ActionLink("加入購物車", "AddCart", "Product", new { id = item.product_no }, new { @class = "btn btn-warning" })
-                        </p>
-                    </div>
-                    @*<div class="card-footer">
-                        <small class="text-muted">
-                            @for (int i = 0; i < item.start_count; i++)
-                            {
-                                <span>&#9733;</span>
-                            }
-                            @if (item.start_count < 5)
-                            {
-                                for (int i = 0; i < (5 - item.start_count); i++)
-                                {
-                                    <span>&#9734;</span>
-                                }
-                            }
-                        </small>
-                    </div>*@
+<!--分隔列-->
+<div class="section pt-5">
+    <div class="container  text-center">
+        <div class="rwo">
+            <div class="process">
+                <div class="col-md-3 col-sm-3 my-3"
+                     style="width: auto; margin-bottom: 10px; padding-bottom: 5px; border-bottom: 4px ridge #d45442;font-size: 30px;font-family: 'Noto Serif TC', serif;text-shadow: 2px 2px 6px rgb(120, 211, 206);">
+                    強檔推薦
                 </div>
             </div>
-        }
-    }
+        </div>
+    </div>
+</div>
+<!--產品項目區-->
+<div class="container mt-3">
+    <div class="row row-cols-1 row-cols-md-3 g-1">
+        <div class="card">
+            <img src="@Url.Content("~/Images/app/Index/img-006.jpg")" class="card-img-top img-thumbnail" alt="..."
+                 style="height: 430.67px;width:auto;">
+            <div class="card-body">
+                <h5 class="card-title">處理器 CPU</h5>
+                <p class="card-text">中央處理器又稱CPU為電腦的主要裝置之一，功能主要是來解釋電腦指令以及處理電腦軟體中的資料。為電腦的核心區塊。</p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="@Url.Content("~/Images/app/Index/img-002.png")" class="card-img-top img-thumbnail" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">顯示卡 VGA</h5>
+                <p class="card-text">「人機對話」的重要裝置之一，將電腦需要的顯示資訊進行轉換，並控制電腦的正確顯示，是連接顯示器和主機板的重要元件。</p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="@Url.Content("~/Images/app/Index/img-005.jpg")" class="card-img-top img-thumbnail" alt="..."
+                 style="height: 430.67px;width:auto;">
+            <div class="card-body">
+                <h5 class="card-title">記憶體 RAM</h5>
+                <p class="card-text">
+                    個人電腦內儲存交換資料的設備。對個人電腦運行環境有很大的影響，容量越大性能越好。
+                    記憶體容量有2GB，4GB，8GB等，但基本上記憶體的使用是成對的兩條。記憶體也是需要選擇符合主機板標準的產品。
+                </p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-3">
+    <div class="row row-cols-1 row-cols-md-3 g-1">
+        <div class="card">
+            <img src="@Url.Content("~/Images/app/Index/img-004.jpg")" class="card-img-top img-thumbnail" alt="..."
+                 style="height: 430.67px;width:auto;">
+            <div class="card-body">
+                <h5 class="card-title">硬碟 SSD</h5>
+                <p class="card-text">
+                    SSD（固態硬碟）讀取速度優於HDD（傳統硬碟），目前主要用於當開機系統硬碟，用於管理電腦內部以及硬碟上的資料和操作系統的一部分。
+                    SSD耐用、具有處理速度快的特點
+                </p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="@Url.Content("~/Images/app/Index/img-001.png")" class="card-img-top img-thumbnail" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">主機板 MB</h5>
+                <p class="card-text">提供一系列接合點，供處理器、顯示卡、硬碟機、記憶體、對外裝置等裝置接合。它們通常直接插入有關插槽，或用線路連接。主機板上最重要的構成元件是晶片組。</p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="@Url.Content("~/Images/app/Index/img-003.png")" class="card-img-top img-thumbnail" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">電源供應器 Power</h5>
+                <p class="card-text">電腦零件中相當重要的一部份負責提供電源給所有配備，攸關電腦整體的穩定性，如果選到不穩定的電源供應器，可能會因此毀壞其他零件，建議要慎選。</p>
+                <p class="card-text"><small class="text-muted"></small></p>
+            </div>
+        </div>
+    </div>
 </div>
