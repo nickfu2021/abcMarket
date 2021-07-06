@@ -273,6 +273,7 @@
     <Content Include="Content\abcMarket\abcMarket_login_style.css" />
     <Content Include="Content\abcMarket\abcMarket_Index_style.css" />
     <Content Include="Content\abcMarket\abcMarket_Lite_style.css" />
+    <Content Include="Content\abcMarket\abcMarket_productdetail_style.css" />
     <Content Include="Content\bootstrap-datepicker.css" />
     <Content Include="Content\bootstrap-datepicker.min.css" />
     <Content Include="Content\bootstrap-datepicker.standalone.css" />
@@ -536,18 +537,33 @@
     <Content Include="Images\app\background-photo2.jpg" />
     <Content Include="Images\app\Index\bg-000.jpg" />
     <Content Include="Images\app\Index\bg-001.jpg" />
+    <Content Include="Images\app\Index\CPU-1.jpg" />
+    <Content Include="Images\app\Index\CPU-2.jpg" />
     <Content Include="Images\app\Index\img-001.png" />
     <Content Include="Images\app\Index\img-002.png" />
     <Content Include="Images\app\Index\img-003.png" />
     <Content Include="Images\app\Index\img-004.jpg" />
     <Content Include="Images\app\Index\img-005.jpg" />
-    <Content Include="Images\app\Index\img-006.jpg" />
+    <Content Include="Images\app\Index\MB-1.png" />
+    <Content Include="Images\app\Index\MB-2.png" />
+    <Content Include="Images\app\Index\POWER-1.png" />
+    <Content Include="Images\app\Index\POWER-2.png" />
+    <Content Include="Images\app\Index\RAM-1.png" />
+    <Content Include="Images\app\Index\RAM-2.png" />
+    <Content Include="Images\app\Index\SSD-1.jpg" />
+    <Content Include="Images\app\Index\SSD-2.jpg" />
+    <Content Include="Images\app\Index\VGA-1.png" />
+    <Content Include="Images\app\Index\VGA-2.png" />
     <Content Include="Images\app\login\bg-login.jpg" />
     <Content Include="Images\app\logo\logo.png" />
     <Content Include="Images\app\Password\invisible.png" />
     <Content Include="Images\app\Password\invisible.svg" />
     <Content Include="Images\app\Password\visible.png" />
     <Content Include="Images\app\Password\visible.svg" />
+    <Content Include="Images\app\pay_bg.jpg" />
+    <Content Include="Images\app\process_img\process_01.png" />
+    <Content Include="Images\app\process_img\process_02.png" />
+    <Content Include="Images\app\process_img\process_03.png" />
     <Content Include="Images\app\product.jpg" />
     <Content Include="Images\carousel\carousel01.jpg" />
     <Content Include="Images\carousel\carousel02.jpg" />
@@ -680,6 +696,7 @@
     <Content Include="Content\DataTables\css\semanticui.scss" />
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
+    <Content Include="Scripts\bootstrap.v4.2.1.min.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
@@ -1351,6 +1368,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Scripts\zoom.js" />
     <Content Include="shop\.gitignore" />
     <Content Include="shop\css\product-detail.css" />
     <Content Include="shop\css\shop-detail.css" />
@@ -1382,7 +1400,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Html.cshtml" />
@@ -1446,10 +1463,11 @@
     <Content Include="Views\User\ResetForgetPassword.cshtml" />
     <Content Include="Views\Shared\goshopping\_LayoutLite_goshopping.cshtml" />
     <Content Include="Views\Product\CollectList.cshtml" />
-    <Content Include="Views\Shared\_LayoutIndex.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutLite.cshtml" />
-    <Content Include="Views\Home\WebStore.cshtml" />
+    <Content Include="Views\Shared\_LayoutProductDetail.cshtml" />
+    <Content Include="Views\Shared\_Layout_abcmarket.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -11,15 +11,17 @@ namespace abcMarket.Controllers
     {
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult WebStore()
-        {
             cvmWebStore model = new cvmWebStore()
             {
                 CarouseImages = Shop.GetCarouselImages(),
-                TopProducts = Shop.GetTopProducts()
+                TopProducts = Shop.GetTopProducts(),
+                ProductCategory = Shop.GetProductCategory(),
+                MB = Shop.GetMB(),
+                VGA = Shop.GetVGA(),
+                RAM = Shop.GetRAM(),
+                SSD = Shop.GetSSD(),
+                POWER = Shop.GetPOWER(),
+                CPU = Shop.GetCPU(),
             };
             return View(model);
         }

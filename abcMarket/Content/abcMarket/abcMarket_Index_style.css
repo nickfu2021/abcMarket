@@ -1,3 +1,28 @@
+nav {
+    z-index: 99;
+}
+
+#bg1 {
+    background-position: center;
+    background-size: cover;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.5)), url(/Images/app/Index/bg-000.jpg);
+    height: 100vh;
+    width: 100%;
+}
+
+#bg2 {
+    background-position: center;
+    background-size: cover;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6)0%, rgba(0, 0, 0, 0.5)), url(/Images/app/Index/bg-001.jpg);
+    height: 100vh;
+    width: 100%;
+}
+
+.item-block {
+    width: 400px;
+    min-height: 300px;
+}
+
 .ml-auto {
     margin-left: auto;
 }
@@ -30,7 +55,21 @@
             opacity: 0.5;
         }
 
-.card:hover {
+#product:hover {
     background-color: #0b8138;
     transition: 0.5s;
 }
+
+.content {
+    min-height: 100vh;
+    margin-top: -80px;
+    margin-bottom: -220px;
+    padding-top: 80px;
+    padding-bottom: 230px;
+}
+
+#end {
+    min-height: 220px;
+}
+
+

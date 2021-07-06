@@ -94,6 +94,12 @@
           <Property Name="istop" Type="int" />
           <Property Name="ishot" Type="int" />
           <Property Name="issale" Type="int" />
+          <Property Name="isMB" Type="int" />
+          <Property Name="isVGA" Type="int" />
+          <Property Name="isRAM" Type="int" />
+          <Property Name="isSSD" Type="int" />
+          <Property Name="isPOWER" Type="int" />
+          <Property Name="isCPU" Type="int" />
           <Property Name="product_no" Type="nvarchar" MaxLength="50" />
           <Property Name="product_name" Type="nvarchar" MaxLength="250" />
           <Property Name="product_spec" Type="nvarchar" MaxLength="250" />
@@ -216,24 +222,6 @@
           <Property Name="mname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="Products">
-          <Key>
-            <PropertyRef Name="rowid" />
-          </Key>
-          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="categoryid" Type="Int32" />
-          <Property Name="category_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="istop" Type="Int32" />
-          <Property Name="ishot" Type="Int32" />
-          <Property Name="issale" Type="Int32" />
-          <Property Name="product_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="product_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="product_spec" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="price_sale" Type="Int32" />
-          <Property Name="price_cost" Type="Int32" />
-          <Property Name="price_discont" Type="Int32" />
-          <Property Name="remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="Propertys">
           <Key>
             <PropertyRef Name="rowid" />
@@ -290,7 +278,6 @@
           <EntitySet Name="Categorys" EntityType="Self.Categorys" />
           <EntitySet Name="OrdersDetail" EntityType="Self.OrdersDetail" />
           <EntitySet Name="Payments" EntityType="Self.Payments" />
-          <EntitySet Name="Products" EntityType="Self.Products" />
           <EntitySet Name="Propertys" EntityType="Self.Propertys" />
           <EntitySet Name="Roles" EntityType="Self.Roles" />
           <EntitySet Name="Shippings" EntityType="Self.Shippings" />
@@ -300,6 +287,7 @@
           <EntitySet Name="Orders" EntityType="abcMarketModel.Orders" />
           <EntitySet Name="Carts" EntityType="abcMarketModel.Carts" />
           <EntitySet Name="Collects" EntityType="abcMarketModel.Collects" />
+          <EntitySet Name="Products" EntityType="abcMarketModel.Products" />
         </EntityContainer>
         <EntityType Name="ProductsProperty">
           <Key>
@@ -357,6 +345,30 @@
           <Property Name="price" Type="Int32" />
           <Property Name="create_time" Type="DateTime" Precision="3" />
         </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="categoryid" Type="Int32" />
+          <Property Name="category_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="istop" Type="Int32" />
+          <Property Name="ishot" Type="Int32" />
+          <Property Name="issale" Type="Int32" />
+          <Property Name="isMB" Type="Int32" />
+          <Property Name="isVGA" Type="Int32" />
+          <Property Name="isRAM" Type="Int32" />
+          <Property Name="isSSD" Type="Int32" />
+          <Property Name="isPOWER" Type="Int32" />
+          <Property Name="isCPU" Type="Int32" />
+          <Property Name="product_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="product_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="product_spec" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="price_sale" Type="Int32" />
+          <Property Name="price_cost" Type="Int32" />
+          <Property Name="price_discont" Type="Int32" />
+          <Property Name="remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -395,25 +407,6 @@
                 <ScalarProperty Name="rowid" ColumnName="rowid" />
                 <ScalarProperty Name="mno" ColumnName="mno" />
                 <ScalarProperty Name="mname" ColumnName="mname" />
-                <ScalarProperty Name="remark" ColumnName="remark" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="abcMarketModel.Products">
-              <MappingFragment StoreEntitySet="Products">
-                <ScalarProperty Name="rowid" ColumnName="rowid" />
-                <ScalarProperty Name="categoryid" ColumnName="categoryid" />
-                <ScalarProperty Name="category_name" ColumnName="category_name" />
-                <ScalarProperty Name="istop" ColumnName="istop" />
-                <ScalarProperty Name="ishot" ColumnName="ishot" />
-                <ScalarProperty Name="issale" ColumnName="issale" />
-                <ScalarProperty Name="product_no" ColumnName="product_no" />
-                <ScalarProperty Name="product_name" ColumnName="product_name" />
-                <ScalarProperty Name="product_spec" ColumnName="product_spec" />
-                <ScalarProperty Name="price_sale" ColumnName="price_sale" />
-                <ScalarProperty Name="price_cost" ColumnName="price_cost" />
-                <ScalarProperty Name="price_discont" ColumnName="price_discont" />
                 <ScalarProperty Name="remark" ColumnName="remark" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -531,6 +524,31 @@
                 <ScalarProperty Name="product_name" ColumnName="product_name" />
                 <ScalarProperty Name="product_no" ColumnName="product_no" />
                 <ScalarProperty Name="user_email" ColumnName="user_email" />
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="abcMarketModel.Products">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="price_discont" ColumnName="price_discont" />
+                <ScalarProperty Name="price_cost" ColumnName="price_cost" />
+                <ScalarProperty Name="price_sale" ColumnName="price_sale" />
+                <ScalarProperty Name="product_spec" ColumnName="product_spec" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="product_no" ColumnName="product_no" />
+                <ScalarProperty Name="isCPU" ColumnName="isCPU" />
+                <ScalarProperty Name="isPOWER" ColumnName="isPOWER" />
+                <ScalarProperty Name="isSSD" ColumnName="isSSD" />
+                <ScalarProperty Name="isRAM" ColumnName="isRAM" />
+                <ScalarProperty Name="isVGA" ColumnName="isVGA" />
+                <ScalarProperty Name="isMB" ColumnName="isMB" />
+                <ScalarProperty Name="issale" ColumnName="issale" />
+                <ScalarProperty Name="ishot" ColumnName="ishot" />
+                <ScalarProperty Name="istop" ColumnName="istop" />
+                <ScalarProperty Name="category_name" ColumnName="category_name" />
+                <ScalarProperty Name="categoryid" ColumnName="categoryid" />
                 <ScalarProperty Name="rowid" ColumnName="rowid" />
               </MappingFragment>
             </EntityTypeMapping>

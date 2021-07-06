@@ -30,6 +30,12 @@ namespace abcMarket.Areas.Admin.Controllers
                         models[i].bool_istop = (models[i].istop == 1);
                         models[i].bool_ishot = (models[i].ishot == 1);
                         models[i].bool_issale = (models[i].issale == 1);
+                        //models[i].bool_isMB = (models[i].isMB == 1);
+                        //models[i].bool_isVGA = (models[i].isVGA == 1);
+                        //models[i].bool_isRAM = (models[i].isRAM == 1);
+                        //models[i].bool_isSSD = (models[i].isSSD == 1);
+                        //models[i].bool_isPOWER = (models[i].isPOWER == 1);
+                        //models[i].bool_isCPU = (models[i].isCPU == 1);
                     }
                 }
                 return Json(new { data = models }, JsonRequestBehavior.AllowGet);
@@ -72,12 +78,24 @@ namespace abcMarket.Areas.Admin.Controllers
                     //new_model.browse_count = 0;
                     new_model.bool_istop = false;
                     new_model.bool_ishot = false;
+                    //new_model.bool_isMB = false;
+                    //new_model.bool_isVGA = false;
+                    //new_model.bool_isRAM = false;
+                    //new_model.bool_isSSD = false;
+                    //new_model.bool_isPOWER = false;
+                    //new_model.bool_isCPU = false;
                     new_model.bool_issale = true;
                     return View(new_model);
                 }
 
                 models.bool_istop = (models.istop == 1);
                 models.bool_ishot = (models.ishot == 1);
+                //models.bool_isMB = (models.isMB == 1);
+                //models.bool_isVGA = (models.isVGA == 1);
+                //models.bool_isRAM = (models.isRAM == 1);
+                //models.bool_isSSD = (models.isSSD == 1);
+                //models.bool_isPOWER = (models.isPOWER == 1);
+                //models.bool_isCPU = (models.isCPU == 1);
                 models.bool_issale = (models.issale == 1);
                 return View(models);
             }
@@ -108,6 +126,12 @@ namespace abcMarket.Areas.Admin.Controllers
                             products.istop = (models.bool_istop) ? 1 : 0;
                             products.ishot = (models.bool_ishot) ? 1 : 0;
                             products.issale = (models.bool_issale) ? 1 : 0;
+                            //products.isMB = (models.bool_isMB) ? 1 : 0;
+                            //products.isVGA = (models.bool_isVGA) ? 1 : 0;
+                            //products.isRAM = (models.bool_isRAM) ? 1 : 0;
+                            //products.isSSD = (models.bool_isSSD) ? 1 : 0;
+                            //products.isPOWER = (models.bool_isPOWER) ? 1 : 0;
+                            //products.isCPU = (models.bool_isCPU) ? 1 : 0;
                             products.price_cost = models.price_cost;
                             products.price_discont = models.price_discont;
                             products.price_sale = models.price_sale;
@@ -126,6 +150,12 @@ namespace abcMarket.Areas.Admin.Controllers
                         models.istop = (models.bool_istop) ? 1 : 0;
                         models.ishot = (models.bool_ishot) ? 1 : 0;
                         models.issale = (models.bool_issale) ? 1 : 0;
+                        //models.isMB = (models.bool_isMB) ? 1 : 0;
+                        //models.isVGA = (models.bool_isVGA) ? 1 : 0;
+                        //models.isRAM = (models.bool_isRAM) ? 1 : 0;
+                        //models.isSSD = (models.bool_isSSD) ? 1 : 0;
+                        //models.isPOWER = (models.bool_isPOWER) ? 1 : 0;
+                        //models.isCPU = (models.bool_isCPU) ? 1 : 0;
                         db.Products.Add(models);
                     }
                     db.SaveChanges();

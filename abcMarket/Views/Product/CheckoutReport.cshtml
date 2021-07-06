@@ -1,14 +1,50 @@
 ﻿@{
     ViewBag.Title = "CheckoutReport";
+    Layout = "~/Views/Shared/_Layout_abcmarket.cshtml";
 }
 
-<h2>訂單建立完成!!</h2>
-<h5>
-    您的訂單編號：@Cart.OrderNo
-</h5>
-<h5>
-    請留意您的 Email 信箱，訂單狀態有變動時會即時通知!! <br />
-    如您未付款請於期限內支付款項，收到款項後會立即辦理出貨事宜！！
-</h5>
+<style>
+    .process_03 {
+        max-width: 500px;
+        max-height: 200px;
+        transform: scale(2);
+    }
 
-@Html.ActionLink("繼續購物", "Index", "Home", null, new { @class = "btn btn-primary" })
+    @@media screen and (max-width: 426px) {
+        .process_03 {
+            max-width: 200px;
+            max-height: 100px;
+            transform: scale(2);
+        }
+        #card {
+            width: 100%;
+        }
+    }
+
+    @@media screen and (min-width: 512px) {
+        #card {
+            width: 50%;
+        }
+    }
+</style>
+
+
+<div class="text-center">
+    <img src="@Url.Content("~/Images/app/process_img/process_03.png")" class="process_03">
+</div>
+
+
+<div class="card m-auto" id="card">
+    <div class="card-body">
+        <h2>訂單建立完成!!</h2>
+        <h5>
+            您的訂單編號：@Cart.OrderNo
+        </h5>
+        <h5>
+            請留意您的 Email 信箱，訂單狀態有變動時會即時通知!! <br />
+            如您未付款請於期限內支付款項，收到款項後會立即辦理出貨事宜！！
+        </h5>
+
+        @Html.ActionLink("繼續購物", "Index", "Home", null, new { @class = "btn btn-primary" })
+    </div>
+</div>

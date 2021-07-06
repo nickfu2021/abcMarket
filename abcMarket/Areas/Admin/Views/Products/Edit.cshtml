@@ -11,9 +11,9 @@
     if (Model != null && Model.rowid > 0)
     {
         @Html.HiddenFor(model => model.rowid)
-        @Html.HiddenFor(model => model.product_spec)
+        @*@Html.HiddenFor(model => model.product_spec)*@
         @Html.HiddenFor(model => model.category_name)
-        
+
         @Html.HiddenFor(model => model.remark)
     }
 
@@ -28,6 +28,13 @@
         @Html.TextBoxFor(model => model.product_name, new { @class = "form-control" })
         @Html.ValidationMessageFor(model => model.product_name)
     </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.product_spec, htmlAttributes: new { @class = "control-label control-header" })
+        @Html.TextBoxFor(model => model.product_spec, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.product_spec)
+    </div>
+
     <div class="form-group">
         @Html.LabelFor(model => model.categoryid, htmlAttributes: new { @class = "control-label control-header" })
         @Html.DropDownList("categoryid", (IEnumerable<SelectListItem>)ViewBag.CategoryList, new { @class = "form-control" })
@@ -63,6 +70,37 @@
         @Html.CheckBoxFor(model => model.bool_issale, new { @class = "form-control form-control-checkbox" })
         @Html.ValidationMessageFor(model => model.bool_issale)
     </div>
+
+    @*<div class="form-group">
+        @Html.LabelFor(model => model.bool_isMB, htmlAttributes: new { @class = "control-label control-header" })
+        @Html.CheckBoxFor(model => model.bool_isMB, new { @class = "form-control form-control-checkbox" })
+        @Html.ValidationMessageFor(model => model.bool_isMB)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.bool_isVGA, htmlAttributes: new { @class = "control-label control-header" })
+        @Html.CheckBoxFor(model => model.bool_isVGA, new { @class = "form-control form-control-checkbox" })
+        @Html.ValidationMessageFor(model => model.bool_isVGA)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.bool_isRAM, htmlAttributes: new { @class = "control-label control-header" })
+        @Html.CheckBoxFor(model => model.bool_isRAM, new { @class = "form-control form-control-checkbox" })
+        @Html.ValidationMessageFor(model => model.bool_isRAM)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.bool_isSSD, htmlAttributes: new { @class = "control-label control-header" })
+        @Html.CheckBoxFor(model => model.bool_isSSD, new { @class = "form-control form-control-checkbox" })
+        @Html.ValidationMessageFor(model => model.bool_isSSD)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.bool_isPOWER, htmlAttributes: new { @class = "control-label control-header" })
+        @Html.CheckBoxFor(model => model.bool_isPOWER, new { @class = "form-control form-control-checkbox" })
+        @Html.ValidationMessageFor(model => model.bool_isPOWER)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.bool_isCPU, htmlAttributes: new { @class = "control-label control-header" })
+        @Html.CheckBoxFor(model => model.bool_isCPU, new { @class = "form-control form-control-checkbox" })
+        @Html.ValidationMessageFor(model => model.bool_isCPU)
+    </div>*@
 
     <div>
         <input type="submit" value="存檔" class="btn btn-success form-button" />

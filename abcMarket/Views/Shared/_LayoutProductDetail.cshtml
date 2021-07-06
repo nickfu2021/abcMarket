@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+    <script src="@Url.Content("~/Scripts/jquery-3.3.1.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.v4.2.1.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/zoom.js")"></script>
+    <link rel="stylesheet" href="@Url.Content("~/Content/abcMarket/abcMarket_productdetail_style.css")">
+    <title>@ViewBag.Title</title>
+
+</head>
+<body>
+    <!--導覽列-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+        <div class="container-fluid">
+            <img src="@Url.Content("~/Images/app/logo/logo.png")" alt="">
+            <a class="navbar-brand " href="/Home/Index">abcMarket</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+                <ul class="navbar-nav ml-auto">
+                    @*<li><a class="nav-link active" aria-current="page" href="/Home/WebStore">商城</a></li>*@
+
+                    <li>
+                        <a class="nav-link active" aria-current="page" href="/Product/CartList">
+                            <i class="fa fa-shopping-cart">(@Cart.Counts)</i>
+                        </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            會員中心
+                        </a>
+                        @if (UserAccount.IsLogin)
+                        {
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="/Member/Member/Index">會員專區</a></li>
+                                <li><a class="dropdown-item" href="/Product/CollectList">追蹤商品</a></li>
+                                @*<li><a class="dropdown-item" href="/Product/CartList">購物車</a></li>*@
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="/User/LogOut" onclick="alert('您已登出系統!!')">登出系統</a></li>
+                            </ul>
+                        }
+                        else
+                        {
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                @*<li><a class="dropdown-item" href="/Product/CartList">購物車</a></li>*@
+                                <li><a class="dropdown-item" href="/User/Register">註冊會員</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="/User/Login">會員登入</a></li>
+                            </ul>
+                        }
+
+                    </li>
+                    <li> <a class="nav-link" href="#">關於我們</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="content">
+        @RenderBody()
+    </div>
+
+    <!--尾頁導覽-->
+    <div style="margin-right: 0;margin-left: 0;background-color: #f5f3eb;" id="end">
+        <div class="container mt-3 ">
+            <div class="row">
+                <div class="col-sm-3">
+                    <ul class="list-group">
+                        <li class="list-group">
+                            <h1 style="color: red;">abcMarket</h1>
+                        </li>
+                    </ul>
+                    <nav style="--bs-breadcrumb-divider: '&nbsp';" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item "><i class="fa fa-facebook-official" aria-hidden="true"></i></li>
+                            <li class="breadcrumb-item "><i class="fa fa-youtube-play" aria-hidden="true"></i></li>
+                            <li class="breadcrumb-item "><i class="fa fa-twitter-square" aria-hidden="true"></i></li>
+                        </ol>
+                    </nav>
+                </div>
+
+                <div class="col-sm-3">
+                    <ul class="list-group">
+                        <li class="list-group"
+                            style="margin-bottom: 10px; padding-bottom: 5px; border-bottom: 3px solid #bba592; color: #454544;font-size: 20px;">
+                            <b>聯絡資訊</b>
+                        </li>
+                        <li class="list-group">電話:03-4456787</li>
+                        <li class="list-group">地址:桃園縣中壢區東西里17鄰8號</li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <ul class="list-group">
+                        <li class="list-group"
+                            style="margin-bottom: 10px; padding-bottom: 5px; border-bottom: 3px solid #bba592; color: #454544;font-size: 20px;">
+                            <b>營業時間</b>
+                        </li>
+                        <li class="list-group">週一至週六 上午10:00~晚上9:30</li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <ul class="list-group">
+                        <li class="list-group">
+                            <b style="margin-bottom: 10px; padding-bottom: 5px; border-bottom: 3px solid #bba592; color: #454544;font-size: 20px;">會員區域</b>
+                        </li>
+                        <li class="list-group">
+                            <a href="#"
+                               style="color: rgb(7, 7, 7); text-decoration: none; margin-right: auto;">購物清單</a>
+                        </li>
+                        <li class="list-group">
+                            <a href="#"
+                               style="color: rgb(7, 7, 7); text-decoration: none; margin-right: auto;">會員中心</a>
+                        </li>
+                        <li class="list-group">
+                            <a href="/專題/registered/registered.html"
+                               style="color: rgb(7, 7, 7); text-decoration: none; margin-right: auto;">會員註冊</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+    </script>
+
+    <script>
+        //<![CDATA[
+        $(".zoom").each(function () {
+            var $this = $(this);
+            $this.mlens({
+                imgSrc: $this.attr("data-big"),
+                lensShape: "square", // 放大鏡形狀 circle(圓形), square(方形)
+                lensSize: ["10%", "10%"], // 放大鏡長寬 (可使用 px 或百分比 %)
+                borderSize: 1, // 放大鏡邊框寬度 (px)
+                borderColor: "#fff", // 放大鏡邊框顏色色碼
+                borderRadius: 10, // 如果放大鏡為方形 設定圓角程度
+                overlayAdapt: true,
+                zoomLevel: 1,
+                responsive: true // 圖片是否自適應
+            });
+        }).parent().css("position", "relative");
+                    //]]>
+    </script>
+
+</body>
+
+</html>
+
+
+

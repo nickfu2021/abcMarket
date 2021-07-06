@@ -1,6 +1,5 @@
 ﻿<!doctype html>
 <html lang="en">
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -12,6 +11,8 @@
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500&display=swap" rel="stylesheet">
+    <script src="@Url.Content("~/Scripts/jquery-3.3.1.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.v4.2.1.min.js")"></script>
     <link rel="stylesheet" href="@Url.Content("~/Content/abcMarket/abcMarket_Index_style.css")">
     <title>@ViewBag.Title</title>
 </head>
@@ -28,7 +29,15 @@
             </button>
             <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
                 <ul class="navbar-nav ml-auto">
-                    <li><a class="nav-link active" aria-current="page" href="/Home/WebStore">商城</a></li>
+
+                    @*<li><a class="nav-link active" aria-current="page" href="/Home/WebStore">商城</a></li>*@
+
+                    <li>
+                        <a class="nav-link active" aria-current="page" href="/Product/CartList">
+                            <i class="fa fa-shopping-cart">(@Cart.Counts)</i>
+                        </a>
+                    </li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                            aria-expanded="false">
@@ -38,17 +47,18 @@
                         {
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="/Member/Member/Index">會員專區</a></li>
-                                <li><a class="dropdown-item" href="/Product/CartList">購物車</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
+                                <li><a class="dropdown-item" href="/Product/CollectList">追蹤商品</a></li>
+
+                                @*<li><a class="dropdown-item" href="/Product/CartList">購物車</a></li>*@
+
+                                <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="/User/LogOut" onclick="alert('您已登出系統!!')">登出系統</a></li>
                             </ul>
                         }
                         else
                         {
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="/Product/CartList">購物車</a></li>
+                                @*<li><a class="dropdown-item" href="/Product/CartList">購物車</a></li>*@
                                 <li><a class="dropdown-item" href="/User/Register">註冊會員</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
@@ -64,10 +74,11 @@
         </div>
     </nav>
 
-    @RenderBody()
-
+    <div class="content">
+        @RenderBody()
+    </div>
     <!--尾頁導覽-->
-    <div style="margin-right: 0;margin-left: 0;background-color: #f5f3eb;">
+    <div style="margin-right: 0;margin-left: 0;background-color: #f5f3eb;" id="end">
         <div class="container mt-3 ">
             <div class="row">
                 <div class="col-sm-3">
@@ -110,10 +121,6 @@
                             <b style="margin-bottom: 10px; padding-bottom: 5px; border-bottom: 3px solid #bba592; color: #454544;font-size: 20px;">會員區域</b>
                         </li>
                         <li class="list-group">
-                            <a href="/專題/market/market.html"
-                               style="color: rgb(7, 7, 7); text-decoration: none; margin-right: auto;">商城</a>
-                        </li>
-                        <li class="list-group">
                             <a href="#"
                                style="color: rgb(7, 7, 7); text-decoration: none; margin-right: auto;">購物清單</a>
                         </li>
@@ -139,3 +146,4 @@
 </body>
 
 </html>
+

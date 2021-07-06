@@ -45,7 +45,7 @@
             { "data": "price_discont", "width": "60px" },
             {
                 "data": "istop", "width": "30px", "render": function (data) {
-                    if (data === 1) {
+                    if (data == 1) {
                         return '<input type="checkbox" checked="checked" disabled="disabled" />';
                     }
                     else {
@@ -55,7 +55,7 @@
             },
             {
                 "data": "ishot", "width": "30px", "render": function (data) {
-                    if (data === 1) {
+                    if (data == 1) {
                         return '<input type="checkbox" checked="checked" disabled="disabled" />';
                     }
                     else {
@@ -65,7 +65,7 @@
             },
             {
                 "data": "issale", "width": "30px", "render": function (data) {
-                    if (data === 1) {
+                    if (data == 1) {
                         return '<input type="checkbox" checked="checked" disabled="disabled" />';
                     }
                     else {
@@ -73,6 +73,66 @@
                     }
                 }
             },
+            //{
+            //    "data": "isMB", "width": "30px", "render": function (data) {
+            //        if (data == 1) {
+            //            return '<input type="checkbox" checked="checked" disabled="disabled" />';
+            //        }
+            //        else {
+            //            return '<input type="checkbox" disabled="disabled" />';
+            //        }
+            //    }
+            //},
+            //{
+            //    "data": "isVGA", "width": "30px", "render": function (data) {
+            //        if (data == 1) {
+            //            return '<input type="checkbox" checked="checked" disabled="disabled" />';
+            //        }
+            //        else {
+            //            return '<input type="checkbox" disabled="disabled" />';
+            //        }
+            //    }
+            //},
+            //{
+            //    "data": "isRAM", "width": "30px", "render": function (data) {
+            //        if (data == 1) {
+            //            return '<input type="checkbox" checked="checked" disabled="disabled" />';
+            //        }
+            //        else {
+            //            return '<input type="checkbox" disabled="disabled" />';
+            //        }
+            //    }
+            //},
+            //{
+            //    "data": "isSSD", "width": "30px", "render": function (data) {
+            //        if (data == 1) {
+            //            return '<input type="checkbox" checked="checked" disabled="disabled" />';
+            //        }
+            //        else {
+            //            return '<input type="checkbox" disabled="disabled" />';
+            //        }
+            //    }
+            //},
+            //{
+            //    "data": "isPOWER", "width": "30px", "render": function (data) {
+            //        if (data == 1) {
+            //            return '<input type="checkbox" checked="checked" disabled="disabled" />';
+            //        }
+            //        else {
+            //            return '<input type="checkbox" disabled="disabled" />';
+            //        }
+            //    }
+            //},
+            //{
+            //    "data": "isCPU", "width": "30px", "render": function (data) {
+            //        if (data == 1) {
+            //            return '<input type="checkbox" checked="checked" disabled="disabled" />';
+            //        }
+            //        else {
+            //            return '<input type="checkbox" disabled="disabled" />';
+            //        }
+            //    }
+            //},
         ]
 
     })

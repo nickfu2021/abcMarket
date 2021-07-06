@@ -8,16 +8,16 @@
         <EntityTypeShape EntityType="abcMarketModel.Categorys" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="abcMarketModel.OrdersDetail" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="abcMarketModel.Payments" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="abcMarketModel.Products" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="abcMarketModel.Propertys" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="abcMarketModel.Roles" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="abcMarketModel.Shippings" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="abcMarketModel.Status" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="abcMarketModel.Users" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="abcMarketModel.ProductsProperty" Width="1.5" PointX="6.625" PointY="4.75" />
+        <EntityTypeShape EntityType="abcMarketModel.ProductsProperty" Width="1.5" PointX="6.75" PointY="5.375" />
         <EntityTypeShape EntityType="abcMarketModel.Orders" Width="1.5" PointX="7.375" PointY="7.75" />
         <EntityTypeShape EntityType="abcMarketModel.Carts" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="abcMarketModel.Collects" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="abcMarketModel.Products" Width="1.5" PointX="6.75" PointY="0.625" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

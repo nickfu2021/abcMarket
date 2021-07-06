@@ -136,6 +136,142 @@ public static class Shop
             return lists;
         }
     }
+
+    public static List<Products> GetProductCategory()
+    {
+
+        using (abcMarketEntities db = new abcMarketEntities())
+        {
+            int products = db.Categorys.Count();
+
+            int[] arr = new int[] { 1, 4, 8, 9, 10, 11, 12 };
+
+            int index_number = Array.IndexOf(arr, 4);
+
+            //foreach (int item in arr)
+            //{
+            //for (int i = 1; i <= products; i++)
+            //{
+            //}
+
+            var lists = db.Products
+                .Where(m => m.categoryid == index_number)
+                .OrderBy(m => m.product_no)
+                .ToList();
+            return lists;
+            //}
+
+        }
+    }
+
+    public static List<Products> GetMB()
+    {
+        using (abcMarketEntities db = new abcMarketEntities())
+        {
+            //var lists = db.Products
+            //  .Where(m => m.isMB == 1)
+            //  .Where(m => m.issale == 1)
+            //  .OrderBy(m => m.product_no)
+            //  .ToList();
+            //return lists;
+            var lists = db.Products
+                .Where(m => m.categoryid == 15)
+                .OrderBy(m => m.product_no)
+                .ToList();
+            return lists;
+        }
+    }
+
+    public static List<Products> GetVGA()
+    {
+        using (abcMarketEntities db = new abcMarketEntities())
+        {
+            //var lists = db.Products
+            //  .Where(m => m.isVGA == 1)
+            //  .Where(m => m.issale == 1)
+            //  .OrderBy(m => m.product_no)
+            //  .ToList();
+            //return lists;
+            var lists = db.Products
+                .Where(m => m.categoryid == 5)
+                .OrderBy(m => m.product_no)
+                .ToList();
+            return lists;
+        }
+    }
+
+    public static List<Products> GetRAM()
+    {
+        using (abcMarketEntities db = new abcMarketEntities())
+        {
+            //var lists = db.Products
+            //  .Where(m => m.isRAM == 1)
+            //  .Where(m => m.issale == 1)
+            //  .OrderBy(m => m.product_no)
+            //  .ToList();
+            //return lists;
+            var lists = db.Products
+                .Where(m => m.categoryid == 3)
+                .OrderBy(m => m.product_no)
+                .ToList();
+            return lists;
+        }
+    }
+
+    public static List<Products> GetSSD()
+    {
+        using (abcMarketEntities db = new abcMarketEntities())
+        {
+            //var lists = db.Products
+            //  .Where(m => m.isSSD == 1)
+            //  .Where(m => m.issale == 1)
+            //  .OrderBy(m => m.product_no)
+            //  .ToList();
+            //return lists;
+            var lists = db.Products
+                .Where(m => m.categoryid == 16)
+                .OrderBy(m => m.product_no)
+                .ToList();
+            return lists;
+        }
+    }
+
+    public static List<Products> GetPOWER()
+    {
+        using (abcMarketEntities db = new abcMarketEntities())
+        {
+            //var lists = db.Products
+            //  .Where(m => m.isPOWER == 1)
+            //  .Where(m => m.issale == 1)
+            //  .OrderBy(m => m.product_no)
+            //  .ToList();
+            //return lists;
+            var lists = db.Products
+                .Where(m => m.categoryid == 17)
+                .OrderBy(m => m.product_no)
+                .ToList();
+            return lists;
+        }
+    }
+
+    public static List<Products> GetCPU()
+    {
+        using (abcMarketEntities db = new abcMarketEntities())
+        {
+            //var lists = db.Products
+            //  .Where(m => m.isCPU == 1)
+            //  .Where(m => m.issale == 1)
+            //  .OrderBy(m => m.product_no)
+            //  .ToList();
+            //return lists;
+            var lists = db.Products
+                .Where(m => m.categoryid == 4)
+                .OrderBy(m => m.product_no)
+                .ToList();
+            return lists;
+        }
+    }
+
     /// <summary>
     /// 取得商品子分類列表
     /// </summary>

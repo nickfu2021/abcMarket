@@ -1,16 +1,39 @@
 ﻿@model IEnumerable<abcMarket.Models.Carts>
 
 @{
-    ViewBag.Title = "CartList";
+    ViewBag.Title = "購物車";
     string str_image_url = "";
     string str_qty_name = "";
     int index = 0;
+    Layout = "~/Views/Shared/_Layout_abcmarket.cshtml";
 }
+
+<style>
+    .process_01{
+        max-width:500px;
+        max-height:200px;
+        transform:scale(2);
+        z-index:-99;
+    }
+
+    @@media screen and (max-width: 426px) {
+        .process_01 {
+            max-width: 200px;
+            max-height: 100px;
+            transform: scale(2);
+            z-index: -99;
+        }
+    }
+
+</style>
 
 <section class="pt-5 pb-5">
     <div class="container">
-        <div class="row w-100">
+        <div class="row w-100">    
             <div class="col-lg-12 col-md-12 col-12">
+                <div class="text-center">
+                    <img src="@Url.Content("~/Images/app/process_img/process_01.png")" class="process_01">
+                </div>
                 <h3 class="display-5 mb-2 text-center">購物車明細</h3>
                 <p class="mb-5 text-center">
                     <i class="text-info font-weight-bold">@Cart.Counts</i> 項商品
@@ -59,7 +82,7 @@
                                 <td class="actions" data-th="">
                                     <div class="text-right">
                                         <a href="/Product/CartDelete/@item.rowid" class="btn btn-white border-secondary bg-white btn-md mb-2">
-                                            <i class="fas fa-trash"></i>
+                                            <i class="fa fa-trash"></i>
                                         </a>
                                     </div>
                                 </td>
@@ -68,20 +91,33 @@
                     </tbody>
                 </table>
                 <div class="float-right text-right">
-                    <h4>合計金額:</h4>
-                    <h1>$@Cart.Totals.ToString("#,##0")</h1>
+                    <h4>合計金額:   <span>$@Cart.Totals.ToString("#,##0")</span></h4>
+
                 </div>
             </div>
         </div>
-        <div class="row mt-4 d-flex align-items-center">
-            <div class="col-sm-6 order-md-2 text-right">
+        <div class="row mt-4">
+            <div class="col-6">
+                <a href="/Home/Index" class="btn btn-success">
+                    <i class="fa fa-arrow-left mr-2"></i> 繼續購物
+                </a>
+            </div>
+            <div class="col-6" >
+                <a href="/Product/Checkout" class="btn btn-primary" style="margin-left:55%">結帳</a>
+            </div>
+
+        </div>
+
+
+        @*<div class="row mt-4 d-flex align-items-center">
+            <div class="col-sm-6 order-md-2 text-center">
                 <a href="/Product/Checkout" class="btn btn-primary mb-4 btn-lg pl-5 pr-5">結帳</a>
             </div>
             <div class="col-sm-6 mb-3 mb-m-1 order-md-1 text-md-left">
-                <a href="/Home/WebStore" class="btn btn-primary">
-                    <i class="fas fa-arrow-left mr-2"></i> 繼續購物
+                <a href="/Home/WebStore" class="btn btn-success">
+                    <i class="fa fa-arrow-left mr-2"></i> 繼續購物
                 </a>
             </div>
-        </div>
+        </div>*@
     </div>
 </section>
