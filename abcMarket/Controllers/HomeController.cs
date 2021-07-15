@@ -11,18 +11,40 @@ namespace abcMarket.Controllers
     {
         public ActionResult Index()
         {
-            cvmWebStore model = new cvmWebStore()
+            //Dictionary<string, int> products = new Dictionary<string, int>();
+            //products.Add("MB", 15);
+            //products.Add("VGA", 5);
+            //products.Add("RAM", 3);
+            //products.Add("SSD", 16);
+            //products.Add("POWER", 17);
+            //products.Add("CPU", 4);
+
+            //foreach (KeyValuePair<string, int> product in products)
+            //{
+            //     ?? = Shop.GetProductsCategory(product.Value);
+            //}
+            cvmWebStore model = new cvmWebStore();
+            List<string> cateList = new List<string>()
             {
-                CarouseImages = Shop.GetCarouselImages(),
-                TopProducts = Shop.GetTopProducts(),
-                ProductCategory = Shop.GetProductCategory(),
-                MB = Shop.GetMB(),
-                VGA = Shop.GetVGA(),
-                RAM = Shop.GetRAM(),
-                SSD = Shop.GetSSD(),
-                POWER = Shop.GetPOWER(),
-                CPU = Shop.GetCPU(),
+                "A04" , "A03" , "A01" , "A05" , "A06" , "A02"
             };
+
+            model.CarouseImages = Shop.GetCarouselImages();
+            model.TopProducts = Shop.GetTopProducts();
+            model.CategoryList = new List<Categorys>();
+            foreach (var item in cateList)
+            {
+                model.CategoryList.Add(Shop.GetCategory(item));
+            }
+           
+
+            //MB = Shop.GetProductsCategory(15),
+            //VGA = Shop.GetProductsCategory(5),
+            //RAM = Shop.GetProductsCategory(3),
+            //SSD = Shop.GetProductsCategory(16),
+            //POWER = Shop.GetProductsCategory(17),
+            //CPU = Shop.GetProductsCategory(4),
+
             return View(model);
         }
 

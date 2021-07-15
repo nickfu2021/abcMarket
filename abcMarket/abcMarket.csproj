@@ -274,6 +274,8 @@
     <Content Include="Content\abcMarket\abcMarket_Index_style.css" />
     <Content Include="Content\abcMarket\abcMarket_Lite_style.css" />
     <Content Include="Content\abcMarket\abcMarket_productdetail_style.css" />
+    <Content Include="Content\abcMarket\about.css" />
+    <Content Include="Content\abcMarket\lightboxshow.css" />
     <Content Include="Content\bootstrap-datepicker.css" />
     <Content Include="Content\bootstrap-datepicker.min.css" />
     <Content Include="Content\bootstrap-datepicker.standalone.css" />
@@ -533,6 +535,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\app\about_bg.jpg" />
     <Content Include="Images\app\background-photo.jpg" />
     <Content Include="Images\app\background-photo2.jpg" />
     <Content Include="Images\app\Index\bg-000.jpg" />
@@ -584,6 +587,9 @@
       <DependentUpon>abcMarketModel.edmx</DependentUpon>
       <LastGenOutput>abcMarketModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\abcMarket\clock.js" />
+    <Content Include="Scripts\abcMarket\jquery-1.8.3.min.js" />
+    <Content Include="Scripts\abcMarket\jquery.snow.js" />
     <Content Include="Scripts\apps\admin\car_index.js" />
     <Content Include="Scripts\apps\admin\category_index.js" />
     <Content Include="Scripts\apps\admin\company_index.js" />
@@ -1200,6 +1206,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.bootstrap.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\lightbox.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker-en-CA.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.ar-tn.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.ar.min.js" />
@@ -1291,6 +1298,7 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\scrollForever.js" />
     <Content Include="Scripts\shop\bootstrap.bundle.js" />
     <Content Include="Scripts\shop\bootstrap.bundle.min.js" />
     <Content Include="Scripts\shop\bootstrap.js" />
@@ -1468,6 +1476,7 @@
     <Content Include="Views\Shared\_LayoutLite.cshtml" />
     <Content Include="Views\Shared\_LayoutProductDetail.cshtml" />
     <Content Include="Views\Shared\_Layout_abcmarket.cshtml" />
+    <Content Include="Views\Shared\_LayoutaAbout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

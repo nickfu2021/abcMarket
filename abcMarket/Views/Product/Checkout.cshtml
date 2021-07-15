@@ -16,6 +16,7 @@
         #card {
             width: 100%;
         }
+
         .process_02 {
             max-width: 200px;
             max-height: 100px;
@@ -97,7 +98,15 @@
 
                 <div class="form-group">
                     <div class="col-md-12 mt-3">
-                        <input type="submit" value="確認付款" class="btn btn-success" />
+                        @if (UserAccount.IsLogin)
+                        {
+                            <input type="submit" value="確認付款" class="btn btn-success" />
+                        }
+                        else
+                        {
+                            <input type="submit" value="確認付款" class="btn btn-success" onclick="alert('請先進行登入!!')"/>
+                        }
+
                         @Html.ActionLink("繼續購物", "Index", "Home", null, new { @class = "btn btn-primary" })
                     </div>
                 </div>

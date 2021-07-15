@@ -2,6 +2,26 @@ nav {
     z-index: 99;
 }
 
+
+.backtotop {
+    position: fixed;
+    z-index: 20;
+    bottom: 30px;
+    right: 30px;
+    border: 1px orange solid;
+    border-radius: 30px;
+    background-color: snow;
+    cursor: pointer;
+    padding: 10px 15px;
+}
+
+    .backtotop:hover {
+        background-color: orange;
+        color: #fff;
+    }
+
+
+
 #bg1 {
     background-position: center;
     background-size: cover;
@@ -71,5 +91,7 @@ nav {
 #end {
     min-height: 220px;
 }
+
+
 
 

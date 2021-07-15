@@ -23,8 +23,7 @@
     <!--導覽列-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
         <div class="container-fluid">
-            <img src="@Url.Content("~/Images/app/logo/logo.png")" alt="">
-            <a class="navbar-brand " href="/Home/Index">abcMarket</a>
+            <a class="navbar-brand" href="/home/Index"><img src="@Url.Content("~/Images/app/logo/logo.png")" alt="">abcMarket</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -69,7 +68,9 @@
                         }
 
                     </li>
-                    <li> <a class="nav-link" href="#">關於我們</a></li>
+                
+                    <li> <a class="nav-link" href="/home/about">關於我們</a></li>
+                  
                 </ul>
             </div>
         </div>
@@ -79,6 +80,9 @@
     <div class="content">
         @RenderBody()
     </div>
+
+    <!--回到頂端-->
+    <button class="backtotop js-backtop" title="返回頂部"><i class="fa fa-chevron-up"></i></button>
 
     <!--尾頁導覽-->
     <div style="margin-right: 0;margin-left: 0;background-color: #f5f3eb;" id="end">
@@ -146,22 +150,49 @@
     </script>
 
     <script>
-        //<![CDATA[
-        $(".zoom").each(function () {
-            var $this = $(this);
-            $this.mlens({
-                imgSrc: $this.attr("data-big"),
-                lensShape: "square", // 放大鏡形狀 circle(圓形), square(方形)
-                lensSize: ["10%", "10%"], // 放大鏡長寬 (可使用 px 或百分比 %)
-                borderSize: 1, // 放大鏡邊框寬度 (px)
-                borderColor: "#fff", // 放大鏡邊框顏色色碼
-                borderRadius: 10, // 如果放大鏡為方形 設定圓角程度
-                overlayAdapt: true,
-                zoomLevel: 1,
-                responsive: true // 圖片是否自適應
+        $(document).ready(function () {
+            //<![CDATA[
+            $(".zoom").each(function () {
+                var $this = $(this);
+                $this.mlens({
+                    imgSrc: $this.attr("data-big"),
+                    lensShape: "square", // 放大鏡形狀 circle(圓形), square(方形)
+                    lensSize: ["10%", "10%"], // 放大鏡長寬 (可使用 px 或百分比 %)
+                    borderSize: 1, // 放大鏡邊框寬度 (px)
+                    borderColor: "#fff", // 放大鏡邊框顏色色碼
+                    borderRadius: 10, // 如果放大鏡為方形 設定圓角程度
+                    overlayAdapt: true,
+                    zoomLevel: 1,
+                    responsive: true // 圖片是否自適應
+                });
+            }).parent().css("position", "relative");
+            //]]>
+
+            //返回按鈕隱藏
+
+            $(".js-backtop").hide();
+
+            $(window).scroll(function () {
+                if ($(window).scrollTop() > 600) {
+                    $(".js-backtop").fadeIn(600);
+                } else {
+                    $(".js-backtop").fadeOut(600);
+                }
             });
-        }).parent().css("position", "relative");
-                    //]]>
+            //返回頂部按鈕
+            var $backtotop = $(".js-backtop");
+            $backtotop.click(function () {
+                $("html,body").animate({
+                    scrollTop: 0
+                }, 50);
+            })
+
+
+            //圖片輪播
+            $('#scroll').scrollForever({
+                delayTime: 20,
+            });
+        })
     </script>
 
 </body>

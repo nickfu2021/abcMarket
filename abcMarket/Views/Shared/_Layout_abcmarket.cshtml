@@ -11,9 +11,11 @@
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500&display=swap" rel="stylesheet">
-    <script src="@Url.Content("~/Scripts/jquery-3.3.1.min.js")"></script>
-    <script src="@Url.Content("~/Scripts/bootstrap.v4.2.1.min.js")"></script>
     <link rel="stylesheet" href="@Url.Content("~/Content/abcMarket/abcMarket_Index_style.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/abcMarket/lightboxshow.css")">
+    <script src="@Url.Content("~/Scripts/jquery-3.3.1.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/lightbox.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.v4.2.1.min.js")"></script>
     <title>@ViewBag.Title</title>
 </head>
 
@@ -21,17 +23,13 @@
     <!--導覽列-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
         <div class="container-fluid">
-            <img src="@Url.Content("~/Images/app/logo/logo.png")" alt="">
-            <a class="navbar-brand " href="/Home/Index">abcMarket</a>
+            <a class="navbar-brand" href="/home/Index"><img src="@Url.Content("~/Images/app/logo/logo.png")" alt="">abcMarket</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
                 <ul class="navbar-nav ml-auto">
-
-                    @*<li><a class="nav-link active" aria-current="page" href="/Home/WebStore">商城</a></li>*@
-
                     <li>
                         <a class="nav-link active" aria-current="page" href="/Product/CartList">
                             <i class="fa fa-shopping-cart">(@Cart.Counts)</i>
@@ -48,9 +46,6 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="/Member/Member/Index">會員專區</a></li>
                                 <li><a class="dropdown-item" href="/Product/CollectList">追蹤商品</a></li>
-
-                                @*<li><a class="dropdown-item" href="/Product/CartList">購物車</a></li>*@
-
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="/User/LogOut" onclick="alert('您已登出系統!!')">登出系統</a></li>
                             </ul>
@@ -58,7 +53,6 @@
                         else
                         {
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                @*<li><a class="dropdown-item" href="/Product/CartList">購物車</a></li>*@
                                 <li><a class="dropdown-item" href="/User/Register">註冊會員</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
@@ -68,7 +62,7 @@
                         }
 
                     </li>
-                    <li> <a class="nav-link" href="#">關於我們</a></li>
+                    <li> <a class="nav-link" href="/home/about">關於我們</a></li>
                 </ul>
             </div>
         </div>

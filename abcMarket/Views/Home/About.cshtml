@@ -1,7 +1,52 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "abcMarket";
+    Layout = "~/Views/Shared/_LayoutaAbout.cshtml";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+<!--日期時鐘-->
+<div style="position: relative; left: 0px; top: 0px;z-index: 90">
+    <div id="clock"></div>
+</div>
+
+<div id="carouselExampleIndicators" class="carousel slide carousel-dark " data-bs-ride="carousel"
+     style="padding-top: 0;">
+    <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="4000" id="bg1">
+            <div style="display: flex; height: 100%; width: 100%; text-align: center; justify-content: center; align-items: center; color: azure;">
+                <p style=" font-weight: 100;" class="font">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut,
+                    ipsam delectus dolorem, deleniti culpa optio quam
+                    pariatur ex, similique voluptates! Aliquam, est maiores?
+                </p>
+            </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="4000" id="bg2">
+            <div style="display: flex; height: 100%; width: 100%; text-align: center; justify-content: center; align-items: center; color: azure;">
+                <p style="font-weight: 100;" class="font">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut,
+                    ipsam delectus dolorem, deleniti culpa optio quam
+                    pariatur ex, similique voluptates! Aliquam, est maiores?
+                </p>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+    </button>
+</div>
+
+<!--地圖-->
+
+
+<div class="w-100"
+     style="position: fixed;bottom: 0px;z-index: 99;background-color: rgba(255, 255, 255, 0.5);text-shadow: 2px 2px #666;">
+    <h2 class="text-warning h2 font-weight-bold txtShadow  text-center">
+        聯絡地址？
+    </h2>
+    <div class="ratio" style="height: 20vh;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2110.2839695936327!2d121.17130242377581!3d24.930160257780567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34682361c065cbe9%3A0xc24080034849b3e3!2z5Yue5YuV6YOo5Yue5YuV5Yqb55m85bGV572y5qGD56u56IuX5YiG572y5bm8542F6IG35qWt6KiT57e05aC0!5e0!3m2!1szh-TW!2stw!4v1625714917020!5m2!1szh-TW!2stw"></iframe>
+    </div>
+</div>

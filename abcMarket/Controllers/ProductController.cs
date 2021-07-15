@@ -72,6 +72,7 @@ namespace abcMarket.Controllers
         [HttpPost]
         public ActionResult ProductDetail(FormCollection collection)
         {
+
             int int_qty = 0;
             //string str_property_no = "";
             string str_product_spec = "";
@@ -182,6 +183,11 @@ namespace abcMarket.Controllers
         [LoginAuthorize(RoleNo = "Member")]
         public ActionResult Checkout(cvmOrders model)
         {
+            if (!UserAccount.IsLogin)
+            {
+                return RedirectToAction("Login", "User");
+            }
+
             if (!ModelState.IsValid)
             {
                 if (model.PaymentsList == null)
@@ -227,6 +233,11 @@ namespace abcMarket.Controllers
 
         public ActionResult AddCollect(string product_no)
         {
+            if(!UserAccount.IsLogin)
+            {
+                return RedirectToAction("Login", "User");
+            }
+
             using (abcMarketEntities db = new abcMarketEntities())
             {
                 int int_price = Shop.GetProductPrice(product_no);

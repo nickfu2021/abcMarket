@@ -1,0 +1,50 @@
+html {
+    overflow-y: auto;
+}
+
+
+
+body {
+    background-color: rgba(109, 108, 106, 0.5);
+}
+
+
+.ml-auto {
+    margin-left: auto;
+}
+
+.container form {
+    height: 300px;
+    width: 300px;
+}
+
+#clock {
+    color: white;
+    font: 2em sans-serif;
+    background: black;
+    margin: 5px;
+    padding: 5px;
+    border: solid gray 2px;
+    border-radius: 20px;
+    width: 140px;
+    text-align: center;
+}
+
+.bg {
+    height: auto;
+    width: auto;
+    margin-top: 50px;
+    position: absolute;
+    background-image: url(/Images/app/about_bg.jpg);
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: -99;
+}
+
+.bg-blur {
+    background-position: center;
+    filter: opacity(0.7);
+
+}

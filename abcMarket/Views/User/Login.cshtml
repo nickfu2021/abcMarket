@@ -8,8 +8,8 @@
 <style>
     #demo_img {
         position: absolute;
-        margin-top: -28px;
-        margin-left: 260px;
+        margin-top: -45px;
+        margin-left: 25px;
         width: 20px;
         height: 20px;
     }
@@ -33,17 +33,16 @@
             @* <input type="password" class="form-control" id="exampleInputPassword1">*@
             @Html.TextBoxFor(model => model.Password, new { @class = "form-control", @style = "border-radius: 20px;", @type = "password", @id = "demo_input" })
             @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-            <img id="demo_img" onclick="hideShowPsw()" src="@Url.Content("~/Images/app/Password/visible.svg")">
-
             @*<input type="checkbox" onchange="document.getElementById('password').type = this.checked ? 'text' : 'password'">顯示密碼*@
         </div>
 
-
         <button type="submit" class="btn btn-primary mt-2" style="border-radius: 10px; box-shadow: 3px 3px 10px rgba(50, 144, 233, 0.4);">登入</button>
         <a href="/User/ForgetPassword" role="button" id="forget">忘記密碼?</a>
+        <img id="demo_img" onclick="hideShowPsw()" src="@Url.Content("~/Images/app/Password/visible.svg")">
         @*</form>*@
     }
 </div>
+
 
 <div class="bg bg-blur"></div>
 

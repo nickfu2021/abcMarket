@@ -6,6 +6,33 @@
 
 }
 
+<script>
+    $(function () {
+        $($('.tab-pane')[0]).addClass('active show')
+
+        $($('.target_tab')[0]).addClass('active show')
+
+        //返回按鈕隱藏
+        $(".js-backtop").hide();
+
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > 1800) {
+                $(".js-backtop").fadeIn(600);
+            } else {
+                $(".js-backtop").fadeOut(600);
+
+            }
+        });
+        //返回頂部按鈕
+        var $backtotop = $(".js-backtop");
+        $backtotop.click(function () {
+            $("html,body").animate({
+                scrollTop: 0
+            }, 50);
+        })
+    })
+</script>
+
 <!--圖片輪播-->
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
@@ -46,27 +73,36 @@
 
 <!--產品項目區-->
 <div class="container mt-3">
+    <div class="rwo col-12 ">
+        <h2 class="text-secondary h1 font-weight-bold txtShadow text-center my-5"
+            style=" border-bottom: 4px ridge #d45442;">
+            零件知識站
+        </h2>
+    </div>
     <div class="row row-cols-1 row-cols-md-3 g-1">
         <div class="card" id=product>
-            <img src="@Url.Content("~/Images/app/Index/CPU-2.jpg")" class="card-img-top img-thumbnail" alt="..."
-                 style="height: 430.67px;width:auto;">
+            <a href="@Url.Content("~/Images/app/Index/CPU-2.jpg")" data-lightbox="pic" title="-處理器 CPU-">
+                <img src="@Url.Content("~/Images/app/Index/CPU-2.jpg")" class="card-img-top img-thumbnail" alt="..." title="左鍵一下開啟大圖視窗" style="height: 430.67px;width:auto;">
+            </a>
             <div class="card-body">
-                <h5 class="card-title">處理器 CPU</h5>
                 <p class="card-text">中央處理器又稱CPU為電腦的主要裝置之一，功能主要是來解釋電腦指令以及處理電腦軟體中的資料。為電腦的核心區塊。</p>
             </div>
         </div>
+
         <div class="card" id=product>
-            <img src="@Url.Content("~/Images/app/Index/VGA-1.png")" class="card-img-top img-thumbnail" alt="...">
+            <a href="@Url.Content("~/Images/app/Index/VGA-1.png")" data-lightbox="pic" title="-顯示卡 VGA-">
+                <img src="@Url.Content("~/Images/app/Index/VGA-1.png")" class="card-img-top img-thumbnail" alt="..." title="左鍵一下開啟大圖視窗">
+            </a>      
             <div class="card-body">
-                <h5 class="card-title">顯示卡 VGA</h5>
                 <p class="card-text">「人機對話」的重要裝置之一，將電腦需要的顯示資訊進行轉換，並控制電腦的正確顯示，是連接顯示器和主機板的重要元件。</p>
             </div>
         </div>
+
         <div class="card" id=product>
-            <img src="@Url.Content("~/Images/app/Index/RAM-1.png")" class="card-img-top img-thumbnail" alt="..."
-                 style="height: 430.67px;width:auto;">
+            <a href="@Url.Content("~/Images/app/Index/RAM-1.png")" data-lightbox="pic" title="-記憶體 RAM-">
+                <img src="@Url.Content("~/Images/app/Index/RAM-1.png")" class="card-img-top img-thumbnail" alt="..." style="height: 430.67px;width:auto;">
+            </a>     
             <div class="card-body">
-                <h5 class="card-title">記憶體 RAM</h5>
                 <p class="card-text">
                     個人電腦內儲存交換資料的設備。對個人電腦運行環境有很大的影響，容量越大性能越好。
                     記憶體容量有2GB，4GB，8GB等，但基本上記憶體的使用是成對的兩條。記憶體也是需要選擇符合主機板標準的產品。
@@ -74,42 +110,45 @@
             </div>
         </div>
     </div>
-</div>
 
-<div class="container mt-3">
     <div class="row row-cols-1 row-cols-md-3 g-1">
         <div class="card" id=product>
-            <img src="@Url.Content("~/Images/app/Index/SSD-2.jpg")" class="card-img-top img-thumbnail" alt="..."
-                 style="height: 430.67px;width:auto;">
+            <a href="@Url.Content("~/Images/app/Index/SSD-2.jpg")" data-lightbox="pic" title="-硬碟 SSD-">
+                <img src="@Url.Content("~/Images/app/Index/SSD-2.jpg")" class="card-img-top img-thumbnail" alt="..." title="左鍵一下開啟大圖視窗" style="height: 430.67px;width:auto;">
+            </a>
             <div class="card-body">
-                <h5 class="card-title">硬碟 SSD</h5>
                 <p class="card-text">
                     SSD（固態硬碟）讀取速度優於HDD（傳統硬碟），目前主要用於當開機系統硬碟，用於管理電腦內部以及硬碟上的資料和操作系統的一部分。
                     SSD耐用、具有處理速度快的特點
                 </p>
             </div>
         </div>
+
         <div class="card" id=product>
-            <img src="@Url.Content("~/Images/app/Index/MB-1.png")" class="card-img-top img-thumbnail" alt="...">
+            <a href="@Url.Content("~/Images/app/Index/MB-1.png")" data-lightbox="pic" title="-主機板 MB-">
+                <img src="@Url.Content("~/Images/app/Index/MB-1.png")" class="card-img-top img-thumbnail" alt="..." title="左鍵一下開啟大圖視窗">
+            </a>
             <div class="card-body">
-                <h5 class="card-title">主機板 MB</h5>
                 <p class="card-text">提供一系列接合點，供處理器、顯示卡、硬碟機、記憶體、對外裝置等裝置接合。它們通常直接插入有關插槽，或用線路連接。主機板上最重要的構成元件是晶片組。</p>
             </div>
         </div>
+
         <div class="card" id=product>
-            <img src="@Url.Content("~/Images/app/Index/POWER-1.png")" class="card-img-top img-thumbnail" alt="...">
+            <a href="@Url.Content("~/Images/app/Index/POWER-1.png")" data-lightbox="pic" title="-電源供應器 Power-">
+                <img src="@Url.Content("~/Images/app/Index/POWER-1.png")" class="card-img-top img-thumbnail" alt="..." title="左鍵一下開啟大圖視窗">
+            </a>
             <div class="card-body">
-                <h5 class="card-title">電源供應器 Power</h5>
                 <p class="card-text">電腦零件中相當重要的一部份負責提供電源給所有配備，攸關電腦整體的穩定性，如果選到不穩定的電源供應器，可能會因此毀壞其他零件，建議要慎選。</p>
             </div>
         </div>
     </div>
 </div>
 
+
 <!--分隔列-->
 <div class="section pt-5 mb-5">
     <div class="container  text-center">
-        <div class="rwo">
+        <div class="row">
             <div class="process">
                 <div class="col-md-3 col-sm-3 my-3"
                      style="width: auto; margin-bottom: 10px; padding-bottom: 5px; border-bottom: 4px ridge #d45442;font-size: 30px;font-family: 'Noto Serif TC', serif;text-shadow: 2px 2px 6px rgb(120, 211, 206);">
@@ -123,218 +162,50 @@
 <!--商品區塊-->
 <div class="container">
     <ul class="nav  nav-fill nav-tabs text-primary mb-5">
-        <!-- <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="#TOTAL">
-                ALL
-            </a>
-        </li> -->
-
-        <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="#MB">
-                主機板
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link " data-toggle="tab" href="#VGA">
-                顯示卡
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#RAM">
-                記憶體
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#SSD">
-                硬碟
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#POWER">
-                電源供應器
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#CPU">
-                CPU
-            </a>
-        </li>
+        @foreach (var item in Model.CategoryList)
+        {
+            <li class="nav-item">
+                <a class="nav-link target_tab" data-toggle="tab" href="@string.Format("#{0}" , item.category_no)">
+                    @item.category_name
+                </a>
+            </li>
+        }
     </ul>
 </div>
 
 <!--tab區塊-->
 <div class="tab-content">
-
-    <div id="MB" class="container tab-pane fade active show">
-        @{
-            foreach (var item in Model.MB)
-            {
-                string str_url = Shop.GetProductImage(item.product_no);
-
-                <div class="row">
-                    <div class="col-md-6 text-center item-block">
-                        <a href="/Product/ProductDetail/@item.product_no">
-                            <img src="@str_url" class="img-fluid">
-                        </a>
-                    </div>
-                    <div class="col-md-6" style="padding:30px 15px 10px">
-                        <h4>
-                            @item.product_name
-                        </h4>
-                        <p>
-                            @item.product_spec
-                        </p>
-                    </div>
-                </div>
+    @foreach (var item in Model.CategoryList)
+    {
+        <div id="@item.category_no" class="container tab-pane fade">
+            @{
+                var datas = Shop.GetProductsCategory(item.category_no);
+                if (datas != null)
+                {
+                    foreach (var prod in datas)
+                    {
+                        string str_image_url = Shop.GetProductImage(prod.product_no);
+                        string str_detail_url = string.Format("/Product/ProductDetail/{0}", prod.product_no);
+                        <div class="row">
+                            <div class="col-md-6 text-center item-block">
+                                <a href="@str_detail_url">
+                                    <img src="@Url.Content(str_image_url)" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="col-md-6" style="padding:30px 15px 10px">
+                                <h4>
+                                    @prod.product_name
+                                </h4>
+                                <p>
+                                    @prod.product_spec
+                                </p>
+                            </div>
+                        </div>
+                    }
+                }
             }
-        }
-
-    </div>
-
-    <div id="VGA" class="container tab-pane fade">
-        @*@{
-            foreach (var item in Model.VGA)
-            {
-                string str_url = Shop.GetProductImage(item.product_no);
-
-                <div class="row">
-                    <div class="col-md-6 text-center item-block">
-                        <a href="/Product/ProductDetail/@item.product_no">
-                            <img src="@str_url" class="img-fluid">
-                        </a>
-                    </div>
-                    <div class="col-md-6" style="padding:30px 15px 10px">
-                        <h4>
-                            @item.product_name
-                        </h4>
-                        <p>
-                            @item.product_spec
-                        </p>
-                    </div>
-                </div>
-            }
-        }*@
-        @{
-            foreach (var item in Model.VGA)
-            {
-                string str_url = Shop.GetProductImage(item.product_no);
-
-                <div class="row">
-                    <div class="col-md-6 text-center item-block">
-                        <a href="/Product/ProductDetail/@item.product_no">
-                            <img src="@str_url" class="img-fluid">
-                        </a>
-                    </div>
-                    <div class="col-md-6" style="padding:30px 15px 10px">
-                        <h4>
-                            @item.product_name
-                        </h4>
-                        <p>
-                            @item.product_spec
-                        </p>
-                    </div>
-                </div>
-            }
-        }
-    </div>
-
-    <div id="RAM" class="container tab-pane fade">
-        @{
-            foreach (var item in Model.RAM)
-            {
-                string str_url = Shop.GetProductImage(item.product_no);
-
-                <div class="row">
-                    <div class="col-md-6 text-center item-block">
-                        <a href="/Product/ProductDetail/@item.product_no">
-                            <img src="@str_url" class="img-fluid">
-                        </a>
-                    </div>
-                    <div class="col-md-6" style="padding:30px 15px 10px">
-                        <h4>
-                            @item.product_name
-                        </h4>
-                        <p>
-                            @item.product_spec
-                        </p>
-                    </div>
-                </div>
-            }
-        }
-    </div>
-
-    <div id="SSD" class="container tab-pane fade">
-        @{
-            foreach (var item in Model.SSD)
-            {
-                string str_url = Shop.GetProductImage(item.product_no);
-                <div class="row mt-5">
-                    <div class="col-md-6 text-center item-block">
-                        <a href="/Product/ProductDetail/@item.product_no">
-                            <img src="@str_url" class="img-fluid">
-                        </a>
-                    </div>
-                    <div class="col-md-6" style="padding:30px 15px 10px">
-                        <h4>
-                            @item.product_name
-                        </h4>
-                        <p>
-                            @item.product_spec
-                        </p>
-                    </div>
-                </div>
-            }
-        }
-    </div>
-
-    <div id="POWER" class="container tab-pane fade ">
-        @{
-            foreach (var item in Model.POWER)
-            {
-                string str_url = Shop.GetProductImage(item.product_no);
-                <div class="row">
-                    <div class="col-md-6 text-center item-block">
-                        <a href="/Product/ProductDetail/@item.product_no">
-                            <img src="@str_url" class="img-fluid">
-                        </a>
-                    </div>
-                    <div class="col-md-6 mt-5" style="padding:30px 15px 10px">
-                        <h4>
-                            @item.product_name
-                        </h4>
-                        <p>
-                            @item.product_spec
-                        </p>
-                    </div>
-                </div>
-            }
-        }
-    </div>
-
-    <div id="CPU" class="container tab-pane fade">
-        @{
-            foreach (var item in Model.CPU)
-            {
-                string str_url = Shop.GetProductImage(item.product_no);
-                <div class="row">
-                    <div class="col-md-6 text-center item-block">
-                        <a href="/Product/ProductDetail/@item.product_no">
-                            <img src="@str_url" class="img-fluid">
-                        </a>
-                    </div>
-                    <div class="col-md-6" style="padding:30px 15px 10px">
-                        <h4>
-                            @item.product_name
-                        </h4>
-                        <p>
-                            @item.product_spec
-                        </p>
-                    </div>
-                </div>
-
-            }
-        }
-    </div>
+        </div>
+    }
 </div>
 
 <!--分隔列-->
@@ -367,49 +238,11 @@
                         <a href="/Product/ProductDetail/@item.product_no" class="btn btn-primary">去看看!!</a>
                     </div>
                 </div>
-                @*<div class="card">
-                        <img src="@Url.Content("~/Images/app/Index/VGA-2.png")" class="card-img-top img-thumbnail" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title"> ASUS Radeon™ RX 6900 XT 16GB GDDR6</h5>
-                            <a href="#" class="btn btn-primary">去看看!!</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="@Url.Content("~/Images/app/Index/RAM-2.png")" class="card-img-top img-thumbnail" alt="..."
-                             style="height: 430.67px;width:auto;">
-                        <div class="card-body">
-                            <h5 class="card-title">F4-2400C15D-16GVR</h5>
-                            <a href="#" class="btn btn-primary">去看看!!</a>
-                        </div>
-                    </div>*@
             }
         }
     </div>
 </div>
 
-@*<div class="container mt-3">
-        <div class="row row-cols-1 row-cols-md-3 g-1">
-            <div class="card">
-                <img src="@Url.Content("~/Images/app/Index/SSD-2.jpg")" class="card-img-top img-thumbnail" alt="..."
-                     style="height: 430.67px;width:auto;">
-                <div class="card-body">
-                    <h5 class="card-title">Crucial Crucial 1TB</h5>
-                    <a href="#" class="btn btn-danger">去看看!!</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="@Url.Content("~/Images/app/Index/MB-2.png")" class="card-img-top img-thumbnail" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">AMD B550 Ryzen AM4 ATX </h5>
-                    <a href="#" class="btn btn-danger">去看看!!</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="@Url.Content("~/Images/app/Index/POWER-2.png")" class="card-img-top img-thumbnail" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">ROG-STRIX-1000G</h5>
-                    <a href="#" class="btn btn-danger">去看看!!</a>
-                </div>
-            </div>
-        </div>
-    </div>*@
+<!--回到頂端-->
+<button class="backtotop js-backtop" title="返回頂部"><i class="fa fa-chevron-up"></i></button>
+

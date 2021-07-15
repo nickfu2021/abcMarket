@@ -1,8 +1,10 @@
 ﻿@model abcMarket.Models.Products
+
 @{
     ViewBag.Title = "商品明細";
     Layout = "~/Views/Shared/_LayoutProductDetail.cshtml";
     <script src="@Url.Content("~/shop/js/product-detail.js")"></script>
+    <script src="@Url.Content("~/Scripts/scrollForever.js")"></script>
 
     string proc_photo = "";
     if (Model != null)
@@ -80,6 +82,8 @@
                             </div>
                         }
                     }
+
+
                     <div class="section" style="padding-bottom: 20px;padding-top:20px;">
                         <h6 class="title-attr product-detail-label">購買數量：</h6>
                         <div>
@@ -90,15 +94,100 @@
                     </div>
                     <div class="section" style="padding-bottom: 20px;">
                         <input type="submit" value="加入購物車" class="btn btn-success" onclick="alert('商品已成功加入購物車囉!!')" />
-                        <a href="@Url.Action("AddCollect","Product",new { product_no = @Model.product_no})" onclick="alert('商品已加入收藏囉!!')"><span>加入收藏</span></a>
+                        @if (UserAccount.IsLogin)
+                        {
+                            <a href="@Url.Action("AddCollect","Product",new { product_no = @Model.product_no})" onclick="alert('商品已加入收藏囉!!')"><span>加入收藏</span></a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("AddCollect","Product",new { product_no = @Model.product_no})" onclick="alert('請先進行登入!!')"><span>加入收藏</span></a>
+                        }
                     </div>
-
                 }
             </div>
         </div>
     </div>
-
 </div>
+
+<div class="section pt-5 mb-5 d-flex justify-content-center">
+    <div class="row w-75">
+        <div class="process">
+            <div class="col-md-3 col-sm-3 my-3 text-center"
+                 style="width: auto; margin-bottom: 10px; padding-bottom: 5px; border-bottom: 4px ridge #d45442;font-size: 30px;font-family: 'Noto Serif TC', serif;text-shadow: 2px 2px 6px rgb(120, 211, 206);">
+                看看其它商品
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!--產品輪播-->
+<div class="container mt-1">
+    <div class="scrollproduct" id="scroll">
+        <ul>
+            @{
+                var data = Shop.GetAllProduct();
+
+                foreach (var item in data)
+                {
+                    <li><img src="@Url.Content("~/Images/product/" + item.product_no  + "/" + item.product_no + ".jpg")"></li>
+                }
+            }
+        </ul>
+    </div>
+</div>
+
+
+<!--商品瀏覽-->
+<div class="container mt-1">
+    <div class="row row-cols-2 row-cols-md-4 g-1">
+        @{
+            foreach (var item in data)
+            {
+                <div class="card">
+                    <div class="product"><img src="@Url.Content("~/Images/product/" + item.product_no  + "/" + item.product_no + ".jpg")" class="card-img-top " alt="..."></div>
+                    <div class="card-body">
+                        <h5 class="card-text">@item.product_name</h5>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 g-1 mt-1">
+        <div class="card">
+            <div class="product"><img src="@Url.Content("~/Images/product/S0001/S0001.jpg")" class="card-img-top " alt="..."></div>
+            <div class="card-body">
+                <h5 class="card-text">Western Digital SSD 1TB</h5>
+            </div>
+        </div>
+        <div class="card">
+            <div class="product"><img src="@Url.Content("~/Images/product/V0001/V0001.jpg")" class="card-img-top " alt="..."></div>
+            <h5 class="card-text">ASUS TUF GAMING Radeon™ RX 6900 XT</h5>
+        </div>
+    </div>
+    <div class="row row-cols-1 row-cols-md-2 g-1 mt-1">
+        <div class="card">
+            <div class="product"><img src="@Url.Content("~/Images/product/S0002/S0002.jpg")" class="card-img-top " alt="..."></div>
+            <div class="card-body">
+                <h5 class="card-text">Crucial Crucial SSD 1TB</h5>
+            </div>
+        </div>
+        <div class="card">
+            <div class="product"><img src="@Url.Content("~/Images/product/C0001/C0001.jpg")" class="card-img-top " alt="..."></div>
+            <div class="card-body">
+                <h5 class="card-text">INTEL 第10代CPU Comet Lake-S Corei5-10400F</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 
 
 @*<div class="container">
