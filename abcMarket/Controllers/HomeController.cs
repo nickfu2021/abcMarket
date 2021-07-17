@@ -11,18 +11,6 @@ namespace abcMarket.Controllers
     {
         public ActionResult Index()
         {
-            //Dictionary<string, int> products = new Dictionary<string, int>();
-            //products.Add("MB", 15);
-            //products.Add("VGA", 5);
-            //products.Add("RAM", 3);
-            //products.Add("SSD", 16);
-            //products.Add("POWER", 17);
-            //products.Add("CPU", 4);
-
-            //foreach (KeyValuePair<string, int> product in products)
-            //{
-            //     ?? = Shop.GetProductsCategory(product.Value);
-            //}
             cvmWebStore model = new cvmWebStore();
             List<string> cateList = new List<string>()
             {
@@ -36,8 +24,7 @@ namespace abcMarket.Controllers
             {
                 model.CategoryList.Add(Shop.GetCategory(item));
             }
-           
-
+            
             //MB = Shop.GetProductsCategory(15),
             //VGA = Shop.GetProductsCategory(5),
             //RAM = Shop.GetProductsCategory(3),

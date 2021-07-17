@@ -98,15 +98,7 @@
 
                 <div class="form-group">
                     <div class="col-md-12 mt-3">
-                        @if (UserAccount.IsLogin)
-                        {
-                            <input type="submit" value="確認付款" class="btn btn-success" />
-                        }
-                        else
-                        {
-                            <input type="submit" value="確認付款" class="btn btn-success" onclick="alert('請先進行登入!!')"/>
-                        }
-
+                        <input type="submit" value="確認付款" class="btn btn-success" />
                         @Html.ActionLink("繼續購物", "Index", "Home", null, new { @class = "btn btn-primary" })
                     </div>
                 </div>

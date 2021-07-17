@@ -19,25 +19,7 @@ namespace abcMarket.Models
         public bool bool_ishot { get; set; }
         [NotMapped]
         [Display(Name = "上架")]
-        public bool bool_issale { get; set; }
-        [NotMapped]
-        [Display(Name = "主機板")]
-        public bool bool_isMB { get; set; }
-        [NotMapped]
-        [Display(Name = "顯示卡")]
-        public bool bool_isVGA { get; set; }
-        [NotMapped]
-        [Display(Name = "記憶體")]
-        public bool bool_isRAM { get; set; }
-        [NotMapped]
-        [Display(Name = "硬碟")]
-        public bool bool_isSSD { get; set; }
-        [NotMapped]
-        [Display(Name = "電源供應器")]
-        public bool bool_isPOWER { get; set; }
-        [NotMapped]
-        [Display(Name = "CPU")]
-        public bool bool_isCPU { get; set; }
+        public bool bool_issale { get; set; }      
         private class ProductsMetaData
         {
             [Key]
@@ -53,19 +35,7 @@ namespace abcMarket.Models
             public Nullable<int> ishot { get; set; }
             [Display(Name = "上架銷售")]
             public Nullable<int> issale { get; set; }
-            [Display(Name = "主機板類")]
-            public Nullable<int> isMB { get; set; }
-            [Display(Name = "顯示卡類")]
-            public Nullable<int> isVGA { get; set; }
-            [Display(Name = "記憶體類")]
-            public Nullable<int> isRAM { get; set; }
-            [Display(Name = "硬碟類")]
-            public Nullable<int> isSSD { get; set; }
-            [Display(Name = "電源供應器類")]
-            public Nullable<int> isPOWER { get; set; }
-            [Display(Name = "CPU類")]
-            public Nullable<int> isCPU { get; set; }
-
+          
             //[Display(Name = "瀏覽次數")]
             //public Nullable<int> browse_count { get; set; }
             //[Display(Name = "廠商編號")]

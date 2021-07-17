@@ -105,32 +105,38 @@ namespace abcMarket.Areas.Member.Controllers
         public ActionResult UploadImage()
         {
             UserAccount.UploadImageMode = true;
+            ImageService.ImageTitle = String.Format("{0}{1}會員圖片上傳", UserAccount.UserEmail, UserAccount.UserName);
+            ImageService.ImageFolder = "~/Images";
+            ImageService.ImageSubFolder = "Member";
+            ImageService.ImageName = UserAccount.UserEmail;
+            ImageService.ImageExtention = "jpg";
+            ImageService.UploadImageMode = true;
             return RedirectToAction("MemberProfile");
         }
 
-        [HttpPost]
-        [LoginAuthorize(RoleNo = "Member")]
-        public ActionResult Upload(HttpPostedFileBase file)
-        {
-            if (file != null)
-            {
-                if (file.ContentLength > 0)
-                {
-                    var fileName = UserAccount.UserEmail + ".jpg";
-                    var path = Path.Combine(Server.MapPath("~/Images/user"), fileName);
-                    if (System.IO.File.Exists(path)) System.IO.File.Delete(path);
-                    file.SaveAs(path);
-                }
-            }
-            UserAccount.UploadImageMode = false;
-            return RedirectToAction("MemberProfile");
-        }
+        //[HttpPost]
+        //[LoginAuthorize(RoleNo = "Member")]
+        //public ActionResult Upload(HttpPostedFileBase file)
+        //{
+        //    if (file != null)
+        //    {
+        //        if (file.ContentLength > 0)
+        //        {
+        //            var fileName = UserAccount.UserEmail + ".jpg";
+        //            var path = Path.Combine(Server.MapPath("~/Images/user"), fileName);
+        //            if (System.IO.File.Exists(path)) System.IO.File.Delete(path);
+        //            file.SaveAs(path);
+        //        }
+        //    }
+        //    UserAccount.UploadImageMode = false;
+        //    return RedirectToAction("MemberProfile");
+        //}
 
-        [LoginAuthorize(RoleNo = "Member")]
-        public ActionResult UploadCancel()
-        {
-            UserAccount.UploadImageMode = false;
-            return RedirectToAction("MemberProfile");
-        }
+        //[LoginAuthorize(RoleNo = "Member")]
+        //public ActionResult UploadCancel()
+        //{
+        //    UserAccount.UploadImageMode = false;
+        //    return RedirectToAction("MemberProfile");
+        //}
     }
 }

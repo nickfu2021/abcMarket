@@ -12,7 +12,7 @@ namespace abcMarket
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            ShopECPay.Payment(Shop.OrderID);
+            ShopECPay.Payment(Shop.OrderID);       
         }
     }
 }

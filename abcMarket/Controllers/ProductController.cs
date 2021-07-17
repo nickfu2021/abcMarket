@@ -72,6 +72,10 @@ namespace abcMarket.Controllers
         [HttpPost]
         public ActionResult ProductDetail(FormCollection collection)
         {
+            if (!UserAccount.IsLogin)
+            {
+                return RedirectToAction("Login", "User");
+            }
 
             int int_qty = 0;
             //string str_property_no = "";
@@ -183,10 +187,6 @@ namespace abcMarket.Controllers
         [LoginAuthorize(RoleNo = "Member")]
         public ActionResult Checkout(cvmOrders model)
         {
-            if (!UserAccount.IsLogin)
-            {
-                return RedirectToAction("Login", "User");
-            }
 
             if (!ModelState.IsValid)
             {
@@ -205,10 +205,13 @@ namespace abcMarket.Controllers
 
             return Redirect("~/ECPayment.aspx");
         }
+
+        
         public ActionResult CheckoutReport()
         {
             return View();
         }
+
 
         [HttpPost]
         public ActionResult Search(string searchText)

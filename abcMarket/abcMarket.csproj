@@ -150,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Class\App\Cart.cs" />
+    <Compile Include="App_Class\App\ImageService.cs" />
     <Compile Include="App_Class\App\Sale.cs" />
     <Compile Include="App_Class\App\Shop.cs" />
     <Compile Include="App_Class\App\ShopECPay.cs" />
@@ -177,6 +178,7 @@
     <Compile Include="Areas\Member\Controllers\OrdersController.cs" />
     <Compile Include="Areas\Member\MemberAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="ECPayment.aspx.cs">
@@ -447,6 +449,7 @@
     <Content Include="Content\DataTables\images\sort_desc.png" />
     <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
     <Content Include="Content\DataTables\swf\flashExport.swf" />
+    <Content Include="Content\FileUpload.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\images\ui-icons_444444_256x240.png" />
     <Content Include="Content\images\ui-icons_555555_256x240.png" />
@@ -538,6 +541,7 @@
     <Content Include="Images\app\about_bg.jpg" />
     <Content Include="Images\app\background-photo.jpg" />
     <Content Include="Images\app\background-photo2.jpg" />
+    <Content Include="Images\app\Close_icon.png" />
     <Content Include="Images\app\Index\bg-000.jpg" />
     <Content Include="Images\app\Index\bg-001.jpg" />
     <Content Include="Images\app\Index\CPU-1.jpg" />
@@ -557,13 +561,16 @@
     <Content Include="Images\app\Index\SSD-2.jpg" />
     <Content Include="Images\app\Index\VGA-1.png" />
     <Content Include="Images\app\Index\VGA-2.png" />
+    <Content Include="Images\app\loading.gif" />
     <Content Include="Images\app\login\bg-login.jpg" />
     <Content Include="Images\app\logo\logo.png" />
+    <Content Include="Images\app\Next_icon.png" />
     <Content Include="Images\app\Password\invisible.png" />
     <Content Include="Images\app\Password\invisible.svg" />
     <Content Include="Images\app\Password\visible.png" />
     <Content Include="Images\app\Password\visible.svg" />
     <Content Include="Images\app\pay_bg.jpg" />
+    <Content Include="Images\app\Prew_icon.png" />
     <Content Include="Images\app\process_img\process_01.png" />
     <Content Include="Images\app\process_img\process_02.png" />
     <Content Include="Images\app\process_img\process_03.png" />
@@ -573,6 +580,7 @@
     <Content Include="Images\carousel\carousel03.jpg" />
     <Content Include="Images\carousel\carousel04.jpg" />
     <Content Include="Images\carousel\carousel05.jpg" />
+    <Content Include="Images\Member\guest.jpg" />
     <Content Include="Images\product\109254541845\109254541845.jpg" />
     <Content Include="Images\uploads\109254541845\10303-man-office-worker-light-skin-tone-icon %281%29.png" />
     <Content Include="Images\uploads\21737107281964\2020-11-26 14_49_17-.png" />
@@ -618,7 +626,7 @@
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap-datepicker.min.js" />
     <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap.v3.4.1.min.js" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Content\bootstrap-datepicker3.standalone.css.map" />
     <Content Include="Content\bootstrap-datepicker3.css.map" />
@@ -702,11 +710,12 @@
     <Content Include="Content\DataTables\css\semanticui.scss" />
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
-    <Content Include="Scripts\bootstrap.v4.2.1.min.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
     <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\FileUpload.js" />
     <Content Include="Scripts\index.js.flow" />
     <Content Include="Scripts\esm\popper.min.js.map" />
     <Content Include="Scripts\esm\popper.js.map" />
@@ -1477,6 +1486,7 @@
     <Content Include="Views\Shared\_LayoutProductDetail.cshtml" />
     <Content Include="Views\Shared\_Layout_abcmarket.cshtml" />
     <Content Include="Views\Shared\_LayoutaAbout.cshtml" />
+    <Content Include="Views\Image\UploadImage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1485,6 +1495,7 @@
     <Folder Include="Areas\Admin\Views\User\" />
     <Folder Include="Areas\Member\Data\" />
     <Folder Include="Areas\Member\Views\Shared\" />
+    <Folder Include="Images\products\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

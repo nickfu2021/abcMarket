@@ -94,12 +94,6 @@
           <Property Name="istop" Type="int" />
           <Property Name="ishot" Type="int" />
           <Property Name="issale" Type="int" />
-          <Property Name="isMB" Type="int" />
-          <Property Name="isVGA" Type="int" />
-          <Property Name="isRAM" Type="int" />
-          <Property Name="isSSD" Type="int" />
-          <Property Name="isPOWER" Type="int" />
-          <Property Name="isCPU" Type="int" />
           <Property Name="product_no" Type="nvarchar" MaxLength="50" />
           <Property Name="product_name" Type="nvarchar" MaxLength="250" />
           <Property Name="product_spec" Type="nvarchar" MaxLength="250" />
@@ -355,12 +349,6 @@
           <Property Name="istop" Type="Int32" />
           <Property Name="ishot" Type="Int32" />
           <Property Name="issale" Type="Int32" />
-          <Property Name="isMB" Type="Int32" />
-          <Property Name="isVGA" Type="Int32" />
-          <Property Name="isRAM" Type="Int32" />
-          <Property Name="isSSD" Type="Int32" />
-          <Property Name="isPOWER" Type="Int32" />
-          <Property Name="isCPU" Type="Int32" />
           <Property Name="product_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="product_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="product_spec" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
@@ -538,12 +526,6 @@
                 <ScalarProperty Name="product_spec" ColumnName="product_spec" />
                 <ScalarProperty Name="product_name" ColumnName="product_name" />
                 <ScalarProperty Name="product_no" ColumnName="product_no" />
-                <ScalarProperty Name="isCPU" ColumnName="isCPU" />
-                <ScalarProperty Name="isPOWER" ColumnName="isPOWER" />
-                <ScalarProperty Name="isSSD" ColumnName="isSSD" />
-                <ScalarProperty Name="isRAM" ColumnName="isRAM" />
-                <ScalarProperty Name="isVGA" ColumnName="isVGA" />
-                <ScalarProperty Name="isMB" ColumnName="isMB" />
                 <ScalarProperty Name="issale" ColumnName="issale" />
                 <ScalarProperty Name="ishot" ColumnName="ishot" />
                 <ScalarProperty Name="istop" ColumnName="istop" />

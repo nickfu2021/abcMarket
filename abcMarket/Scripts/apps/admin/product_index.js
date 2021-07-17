@@ -27,14 +27,14 @@
                 "data": "rowid", "width": "30px", "orderable": false, "render": function (data) {
                     return '<a class="popup"  title="修改記錄" href="/Admin/Products/Edit/' + data + '"><i class="fas fa-edit fa-2x"></i></a>' +
                         '<a class="popup" title="刪除記錄" href="/Admin/Products/Delete/' + data + '"><i class="fas fa-trash-alt fa-2x"></i></a>' +
-                        '<a class="popup" title="上傳圖片" href="/Admin/Products/Upload/' + data + '"><i class="fas fa-upload fa-2x"></i></a>' +
+                        '<a title="上傳圖片" href="/Admin/Products/Upload/' + data + '"><i class="fas fa-upload fa-2x"></i></a>' +
                         '<a class="popup" title="商品描述" href="/Admin/Products/Remark/' + data + '"><i class="fas fa-file-alt fa-2x"></i></a>' +
                         '<a title="屬性設定" href="/Admin/ProductProperty/Index/' + data + '"><i class="fas fa-th-large fa-2x"></i></a>';
                 }
             },
             {
                 "data": "product_no", "width": "50px", "orderable": false, "render": function (data) {
-                    return '<img src="../../images/product/' + data + '/' + data + '.jpg" class="avatar " style="width:48px;height:48px;" />';
+                    return '<img src="../../Images/products/' + data + '.jpg" class="avatar " style="width:48px;height:48px;" />';
                 }
             },
             { "data": "product_no", "width": "50px" },
@@ -72,67 +72,7 @@
                         return '<input type="checkbox" disabled="disabled" />';
                     }
                 }
-            },
-            //{
-            //    "data": "isMB", "width": "30px", "render": function (data) {
-            //        if (data == 1) {
-            //            return '<input type="checkbox" checked="checked" disabled="disabled" />';
-            //        }
-            //        else {
-            //            return '<input type="checkbox" disabled="disabled" />';
-            //        }
-            //    }
-            //},
-            //{
-            //    "data": "isVGA", "width": "30px", "render": function (data) {
-            //        if (data == 1) {
-            //            return '<input type="checkbox" checked="checked" disabled="disabled" />';
-            //        }
-            //        else {
-            //            return '<input type="checkbox" disabled="disabled" />';
-            //        }
-            //    }
-            //},
-            //{
-            //    "data": "isRAM", "width": "30px", "render": function (data) {
-            //        if (data == 1) {
-            //            return '<input type="checkbox" checked="checked" disabled="disabled" />';
-            //        }
-            //        else {
-            //            return '<input type="checkbox" disabled="disabled" />';
-            //        }
-            //    }
-            //},
-            //{
-            //    "data": "isSSD", "width": "30px", "render": function (data) {
-            //        if (data == 1) {
-            //            return '<input type="checkbox" checked="checked" disabled="disabled" />';
-            //        }
-            //        else {
-            //            return '<input type="checkbox" disabled="disabled" />';
-            //        }
-            //    }
-            //},
-            //{
-            //    "data": "isPOWER", "width": "30px", "render": function (data) {
-            //        if (data == 1) {
-            //            return '<input type="checkbox" checked="checked" disabled="disabled" />';
-            //        }
-            //        else {
-            //            return '<input type="checkbox" disabled="disabled" />';
-            //        }
-            //    }
-            //},
-            //{
-            //    "data": "isCPU", "width": "30px", "render": function (data) {
-            //        if (data == 1) {
-            //            return '<input type="checkbox" checked="checked" disabled="disabled" />';
-            //        }
-            //        else {
-            //            return '<input type="checkbox" disabled="disabled" />';
-            //        }
-            //    }
-            //},
+            },      
         ]
 
     })

@@ -86,8 +86,8 @@ public static class UserAccount
     {
         get
         {
-            string str_url = "~/Images/user/guest.jpg";
-            string str_file = string.Format("~/Images/user/{0}.jpg", UserEmail);
+            string str_url = "~/Images/Member/guest.jpg";
+            string str_file = string.Format("~/Images/Member/{0}.jpg", UserEmail);
             if (File.Exists(HttpContext.Current.Server.MapPath(str_file))) str_url = str_file;
             str_url += string.Format("?{0}", DateTime.Now.ToString("yyyyMMddHHmmssfff"));
             return str_url;

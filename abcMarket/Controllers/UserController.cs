@@ -253,8 +253,7 @@ namespace abcMarket.Controllers
             string str_body = "";
 
             str_body += "很高興告訴您，您的 " + str_app_name + " 密碼重設要求已允許. <br/>";
-            str_body += "請按下下方連結,重新設您的新密碼!!<br/><br/>";
-            str_body += "<br/><br/>";
+            str_body += "請按下下方連結,重新設您的新密碼!!<br/><br/>";            
             str_body += "<a href='" + str_link + "'>" + str_link + "</a> ";
             str_body += "本信件由電腦系統自動寄出,請勿回信!!<br/><br/>";
             str_body += string.Format("{0} 系統開發團隊敬上", str_app_name);

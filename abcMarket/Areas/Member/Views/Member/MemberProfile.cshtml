@@ -5,6 +5,10 @@
     Layout = "~/Views/Shared/_LayoutBackend.cshtml";
 }
 
+<link href="@Url.Content("~/Content/FileUpload.css")" rel="stylesheet" />
+<script src="@Url.Content("~/Scripts/FileUpload.js")"></script>
+
+
 @if (!UserAccount.UploadImageMode)
 {
     <div>
@@ -52,16 +56,44 @@
 }
 else
 {
-    <div>
-        <h3>帳號圖像上傳</h3>
-        <hr />
-        @using (Html.BeginForm("Upload", "Member", new { area = "Member" }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    <div class="file-upload">
+        @using (Html.BeginForm("Uploadimage", "Image", new { area = "" }, FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
             @Html.AntiForgeryToken()
-            <input type="file" name="file" id="file" class="form-control" />
-            <input type="submit" value="上傳檔案" class="btn btn-primary form-control" />
+            <div class="row">
+                <div class="text-center">
+                    <h3>@ImageService.ImageTitle</h3>
+                </div>
+            </div>
+            <div class="image-upload-wrap">
+                <input type="file" name="file" id="file" class="form-control file-upload-input" onchange="readURL(this);" accept="image/*" />
+                <div class="drag-text">
+                    <h3>選擇圖片</h3>
+                </div>
+            </div>
+            <div class="file-upload-content">
+                <img class="file-upload-image" src="#" alt="your image" />
+                <div class="image-title-wrap">
+                    <button type="button" onclick="removeUpload()" class="remove-image">移除 <span class="image-title">上傳圖片</span></button>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <input type="submit" value="上傳檔案" class="btn btn-primary" />
+                    @if (!string.IsNullOrEmpty(ImageService.ReturnAreaName))
+                    {
+                        @Html.ActionLink("取消上傳", ImageService.ReturnActionName, ImageService.ReturnControllerName, new { area = ImageService.ReturnAreaName }, new { @class = "btn btn-danger" })
+                    }
+                    else
+                    {
+                        UserAccount.UploadImageMode = false;
+                        @Html.ActionLink("取消上傳", "MemberProfile", "Member", new { area = "Member" }, new { @class = "btn btn-danger" })
+                    }
+                </div>
+            </div>
         }
-        @Html.ActionLink("返回", "UploadCancel", "Member", new { area = "Member" }, new { @class = "btn btn-success form-button" })
+
     </div>
 }
 

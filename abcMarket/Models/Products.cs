@@ -20,12 +20,6 @@ namespace abcMarket.Models
         public Nullable<int> istop { get; set; }
         public Nullable<int> ishot { get; set; }
         public Nullable<int> issale { get; set; }
-        public Nullable<int> isMB { get; set; }
-        public Nullable<int> isVGA { get; set; }
-        public Nullable<int> isRAM { get; set; }
-        public Nullable<int> isSSD { get; set; }
-        public Nullable<int> isPOWER { get; set; }
-        public Nullable<int> isCPU { get; set; }
         public string product_no { get; set; }
         public string product_name { get; set; }
         public string product_spec { get; set; }
