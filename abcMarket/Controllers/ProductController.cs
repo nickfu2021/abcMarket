@@ -114,6 +114,7 @@ namespace abcMarket.Controllers
                 return View(data2);
             }
         }
+
         [LoginAuthorize(RoleNo = "Guest,Member")]
         public ActionResult AddCart(string id)
         {
@@ -186,8 +187,7 @@ namespace abcMarket.Controllers
         [HttpPost]
         [LoginAuthorize(RoleNo = "Member")]
         public ActionResult Checkout(cvmOrders model)
-        {
-
+        {        
             if (!ModelState.IsValid)
             {
                 if (model.PaymentsList == null)
@@ -198,15 +198,13 @@ namespace abcMarket.Controllers
                 {
                     model.ShippingsList = db.Shippings.OrderBy(m => m.mno).ToList();
                 }
-                return View(model);
             }
-
             Cart.CartPayment(model);
 
             return Redirect("~/ECPayment.aspx");
         }
 
-        
+
         public ActionResult CheckoutReport()
         {
             return View();
@@ -236,7 +234,7 @@ namespace abcMarket.Controllers
 
         public ActionResult AddCollect(string product_no)
         {
-            if(!UserAccount.IsLogin)
+            if (!UserAccount.IsLogin)
             {
                 return RedirectToAction("Login", "User");
             }
@@ -276,7 +274,7 @@ namespace abcMarket.Controllers
                 db.Collects.Remove(data);
                 db.SaveChanges();
             }
-            return RedirectToAction("CollectList","Product");
+            return RedirectToAction("CollectList", "Product");
         }
     }
 }

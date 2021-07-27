@@ -204,8 +204,8 @@ public static class Cart
                     detail.amount = item.amount;
                     detail.remark = "";
                     db.OrdersDetail.Add(detail);
-                    db.SaveChanges();
 
+                    db.SaveChanges();
                     db.Carts.Remove(item);
                     db.SaveChanges();
                 }

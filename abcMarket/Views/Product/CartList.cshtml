@@ -9,11 +9,11 @@
 }
 
 <style>
-    .process_01{
-        max-width:500px;
-        max-height:200px;
-        transform:scale(2);
-        z-index:-99;
+    .process_01 {
+        max-width: 500px;
+        max-height: 200px;
+        transform: scale(2);
+        z-index: -99;
     }
 
     @@media screen and (max-width: 426px) {
@@ -24,12 +24,11 @@
             z-index: -99;
         }
     }
-
 </style>
 
 <section class="pt-5 pb-5">
     <div class="container">
-        <div class="row w-100">    
+        <div class="row w-100">
             <div class="col-lg-12 col-md-12 col-12">
                 <div class="text-center">
                     <img src="@Url.Content("~/Images/app/process_img/process_01.png")" class="process_01">
@@ -57,7 +56,7 @@
                                 <td data-th="Product">
                                     <div class="row">
                                         <div class="col-md-3 text-left">
-                                            <img src="@str_image_url" alt="@item.product_no" class="img-fluid d-none d-md-block rounded mb-2 shadow ">
+                                            <img src="@Url.Content(str_image_url)" alt="@item.product_no" class="img-fluid d-none d-md-block rounded mb-2 shadow ">
                                         </div>
                                         <div class="col-md-9 text-left mt-sm-2">
                                             <a href="/Product/ProductDetail/@item.product_no">
@@ -91,8 +90,7 @@
                     </tbody>
                 </table>
                 <div class="float-right text-right">
-                    <h4>合計金額:   <span>$@Cart.Totals.ToString("#,##0")</span></h4>
-
+                    <h4>合計金額:<span>$@Cart.Totals.ToString("#,##0")</span></h4>                    
                 </div>
             </div>
         </div>
@@ -102,22 +100,30 @@
                     <i class="fa fa-arrow-left mr-2"></i> 繼續購物
                 </a>
             </div>
-            <div class="col-6" >
-                <a href="/Product/Checkout" class="btn btn-primary" style="margin-left:55%">結帳</a>
+
+            <div class="col-6">
+                @if (Cart.Totals.ToString("#,##0") == "0")
+                {
+                    <a href="/Product/CartList" class="btn btn-primary" style="margin-left:55%" onclick="alert('您的購物車並沒有商品!!')">結帳</a>
+                }
+                else
+                {
+                    <a href="/Product/Checkout" class="btn btn-primary" style="margin-left:55%">結帳</a>
+                }
             </div>
 
         </div>
 
 
         @*<div class="row mt-4 d-flex align-items-center">
-            <div class="col-sm-6 order-md-2 text-center">
-                <a href="/Product/Checkout" class="btn btn-primary mb-4 btn-lg pl-5 pr-5">結帳</a>
-            </div>
-            <div class="col-sm-6 mb-3 mb-m-1 order-md-1 text-md-left">
-                <a href="/Home/WebStore" class="btn btn-success">
-                    <i class="fa fa-arrow-left mr-2"></i> 繼續購物
-                </a>
-            </div>
-        </div>*@
+                <div class="col-sm-6 order-md-2 text-center">
+                    <a href="/Product/Checkout" class="btn btn-primary mb-4 btn-lg pl-5 pr-5">結帳</a>
+                </div>
+                <div class="col-sm-6 mb-3 mb-m-1 order-md-1 text-md-left">
+                    <a href="/Home/WebStore" class="btn btn-success">
+                        <i class="fa fa-arrow-left mr-2"></i> 繼續購物
+                    </a>
+                </div>
+            </div>*@
     </div>
 </section>

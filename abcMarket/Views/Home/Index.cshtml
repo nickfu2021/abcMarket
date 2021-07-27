@@ -92,7 +92,7 @@
         <div class="card" id=product>
             <a href="@Url.Content("~/Images/app/Index/VGA-1.png")" data-lightbox="pic" title="-顯示卡 VGA-">
                 <img src="@Url.Content("~/Images/app/Index/VGA-1.png")" class="card-img-top img-thumbnail" alt="..." title="左鍵一下開啟大圖視窗">
-            </a>      
+            </a>
             <div class="card-body">
                 <p class="card-text">「人機對話」的重要裝置之一，將電腦需要的顯示資訊進行轉換，並控制電腦的正確顯示，是連接顯示器和主機板的重要元件。</p>
             </div>
@@ -101,7 +101,7 @@
         <div class="card" id=product>
             <a href="@Url.Content("~/Images/app/Index/RAM-1.png")" data-lightbox="pic" title="-記憶體 RAM-">
                 <img src="@Url.Content("~/Images/app/Index/RAM-1.png")" class="card-img-top img-thumbnail" alt="..." style="height: 430.67px;width:auto;">
-            </a>     
+            </a>
             <div class="card-body">
                 <p class="card-text">
                     個人電腦內儲存交換資料的設備。對個人電腦運行環境有很大的影響，容量越大性能越好。
@@ -231,7 +231,7 @@
             {
                 string str_url = Shop.GetProductImage(item.product_no);
                 <div class="card">
-                    <img src="@str_url" class="card-img-top img-thumbnail" alt="..."
+                    <img src="@Url.Content(str_url)" class="card-img-top img-thumbnail" alt="..."
                          style="height: 430.67px;width:auto;">
                     <div class="card-body">
                         <h5 class="card-title">@item.product_name</h5>

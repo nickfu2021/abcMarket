@@ -98,10 +98,11 @@ public static class Shop
     public static string GetProductImage(string productNo)
     {
         string str_image = string.Format("~/Images/products/{0}.jpg", productNo);
+        
         if (File.Exists(HttpContext.Current.Server.MapPath(str_image)))
-            str_image = string.Format("../../Images/products/{0}.jpg", productNo);
+            str_image = string.Format("~/Images/products/{0}.jpg", productNo);
         else
-            str_image = "../../Images/app/product.jpg";
+            str_image = "~/Images/app/product.jpg";
         return str_image;
     }
     /// <summary>

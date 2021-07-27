@@ -33,18 +33,18 @@ nav {
             opacity: 0.5;
         }
 
-#test {
+#product {
     width: 100%;
     min-height: 650px;
     display: block;
 }
 
-#test2 {
+#introduction {
     display: block;
     padding-top: 55px;
 }
 
-#test3 {
+#title {
     display: block;
     max-width: 484px;
     font-size: 1.875rem;
@@ -53,7 +53,7 @@ nav {
     color: rgb(12, 12, 12);
 }
 
-#test4 {
+#detail {
     display: block;
     margin-top: 21px;
     max-width: 484px;
@@ -62,13 +62,13 @@ nav {
     color: rgba(0, 0, 0, 0.548);
 }
 
-#test5 {
+#productitem {
     display: block;
     display: flex;
     padding: 0 0 0 0;
 }
 
-#test6 {
+#productimg {
     display: block;
     width: 692px;
     max-width: 692px;

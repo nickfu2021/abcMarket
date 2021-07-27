@@ -25,18 +25,18 @@ namespace abcMarket.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Carts> Carts { get; set; }
         public virtual DbSet<Categorys> Categorys { get; set; }
+        public virtual DbSet<Collects> Collects { get; set; }
+        public virtual DbSet<Orders> Orders { get; set; }
         public virtual DbSet<OrdersDetail> OrdersDetail { get; set; }
         public virtual DbSet<Payments> Payments { get; set; }
+        public virtual DbSet<Products> Products { get; set; }
+        public virtual DbSet<ProductsProperty> ProductsProperty { get; set; }
         public virtual DbSet<Propertys> Propertys { get; set; }
         public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<Shippings> Shippings { get; set; }
         public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<Users> Users { get; set; }
-        public virtual DbSet<ProductsProperty> ProductsProperty { get; set; }
-        public virtual DbSet<Orders> Orders { get; set; }
-        public virtual DbSet<Carts> Carts { get; set; }
-        public virtual DbSet<Collects> Collects { get; set; }
-        public virtual DbSet<Products> Products { get; set; }
     }
 }

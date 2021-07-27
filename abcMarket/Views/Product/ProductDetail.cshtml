@@ -17,24 +17,24 @@
 
 <!--商品詳細-->
 <div style="display: block;">
-    <div class="container-fluid" id="test">
+    <div class="container-fluid" id="product">
         <div class="row">
-            <div class="col-12 col-md-6 col-lg-7 d-flex justify-content-center align-items-center" id="test5">
-                <div id="test6">
-                    <a href="@proc_photo">
-                        <img src="@proc_photo" data-big="@proc_photo"
+            <div class="col-12 col-md-6 col-lg-7 d-flex justify-content-center align-items-center" id="productitem">
+                <div id="productimg">
+                    <a href="@Url.Content(@proc_photo)">
+                        <img src="@Url.Content(@proc_photo)" data-big="@Url.Content(@proc_photo)"
                              class="img-fluid zoom">
                     </a>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-5" id="test2">
+            <div class="col-12 col-md-6 col-lg-5" id="introduction">
                 @using (Html.BeginForm())
                 {
                     @Html.AntiForgeryToken()
                     <input type="hidden" id="product_no" name="product_no" value="@Model.product_no" />
                     <h2>@Model.product_name</h2>
                     <div class="title-price product-detail-label">商品編號：@Model.product_no</div>
-                    <div id="test4">
+                    <div id="detail">
                         @Html.Raw(Model.remark)
                     </div>
                     if (Model.price_discont != null && Model.price_discont > 0)
@@ -135,7 +135,7 @@
 
                 foreach (var item in data)
                 {
-                    <li><img src="@Url.Content("~/Images/product/" + item.product_no  + "/" + item.product_no + ".jpg")"></li>
+                    <li><img src="@Url.Content("~/Images/products/" + item.product_no + ".jpg")"></li>
                 }
             }
         </ul>
@@ -150,7 +150,7 @@
             foreach (var item in data)
             {
                 <div class="card">
-                    <div class="product"><img src="@Url.Content("~/Images/product/" + item.product_no  + "/" + item.product_no + ".jpg")" class="card-img-top " alt="..."></div>
+                    <div class="product"><img src="@Url.Content("~/Images/products/" + item.product_no + ".jpg")" class="card-img-top " alt="..."></div>
                     <div class="card-body">
                         <h5 class="card-text">@item.product_name</h5>
                     </div>
@@ -161,25 +161,25 @@
 
     <div class="row row-cols-1 row-cols-md-2 g-1 mt-1">
         <div class="card">
-            <div class="product"><img src="@Url.Content("~/Images/product/S0001/S0001.jpg")" class="card-img-top " alt="..."></div>
+            <div class="product"><img src="@Url.Content("~/Images/products/S0001.jpg")" class="card-img-top " alt="..."></div>
             <div class="card-body">
                 <h5 class="card-text">Western Digital SSD 1TB</h5>
             </div>
         </div>
         <div class="card">
-            <div class="product"><img src="@Url.Content("~/Images/product/V0001/V0001.jpg")" class="card-img-top " alt="..."></div>
+            <div class="product"><img src="@Url.Content("~/Images/products/V0001.jpg")" class="card-img-top " alt="..."></div>
             <h5 class="card-text">ASUS TUF GAMING Radeon™ RX 6900 XT</h5>
         </div>
     </div>
     <div class="row row-cols-1 row-cols-md-2 g-1 mt-1">
         <div class="card">
-            <div class="product"><img src="@Url.Content("~/Images/product/S0002/S0002.jpg")" class="card-img-top " alt="..."></div>
+            <div class="product"><img src="@Url.Content("~/Images/products/S0002.jpg")" class="card-img-top " alt="..."></div>
             <div class="card-body">
                 <h5 class="card-text">Crucial Crucial SSD 1TB</h5>
             </div>
         </div>
         <div class="card">
-            <div class="product"><img src="@Url.Content("~/Images/product/C0001/C0001.jpg")" class="card-img-top " alt="..."></div>
+            <div class="product"><img src="@Url.Content("~/Images/products/C0001.jpg")" class="card-img-top " alt="..."></div>
             <div class="card-body">
                 <h5 class="card-text">INTEL 第10代CPU Comet Lake-S Corei5-10400F</h5>
             </div>

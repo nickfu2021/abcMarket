@@ -580,7 +580,21 @@
     <Content Include="Images\carousel\carousel03.jpg" />
     <Content Include="Images\carousel\carousel04.jpg" />
     <Content Include="Images\carousel\carousel05.jpg" />
+    <Content Include="Images\Member\001%40gmail.com.jpg" />
+    <Content Include="Images\Member\admin%40gmail.com.jpg" />
     <Content Include="Images\Member\guest.jpg" />
+    <Content Include="Images\products\C0001.jpg" />
+    <Content Include="Images\products\C0002.jpg" />
+    <Content Include="Images\products\M0001.jpg" />
+    <Content Include="Images\products\M0002.jpg" />
+    <Content Include="Images\products\P0001.jpg" />
+    <Content Include="Images\products\P0002.jpg" />
+    <Content Include="Images\products\R0001.jpg" />
+    <Content Include="Images\products\R0002.jpg" />
+    <Content Include="Images\products\S0001.jpg" />
+    <Content Include="Images\products\S0002.jpg" />
+    <Content Include="Images\products\V0001.jpg" />
+    <Content Include="Images\products\V0002.jpg" />
     <Content Include="Images\product\109254541845\109254541845.jpg" />
     <Content Include="Images\uploads\109254541845\10303-man-office-worker-light-skin-tone-icon %281%29.png" />
     <Content Include="Images\uploads\21737107281964\2020-11-26 14_49_17-.png" />
@@ -721,13 +735,6 @@
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
-    <EntityDeploy Include="Models\abcMarketModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>abcMarketModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\abcMarketModel.edmx.diagram">
-      <DependentUpon>abcMarketModel.edmx</DependentUpon>
-    </Content>
     <Content Include="Content\shop\bootstrap-grid.css.map" />
     <Content Include="Content\shop\bootstrap-grid.min.css.map" />
     <Content Include="Content\shop\bootstrap-reboot.css.map" />
@@ -774,6 +781,16 @@
     <Content Include="Areas\Member\Views\Member\EditProfile.cshtml" />
     <Content Include="Areas\Member\Views\Orders\Index.cshtml" />
     <Content Include="Areas\Member\Views\Orders\Details.cshtml" />
+    <EntityDeploy Include="Models\abcMarketModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>abcMarketModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\abcMarketModel.edmx.diagram">
+      <DependentUpon>abcMarketModel.edmx</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\NoahabcMarket - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\NoahabcMarket - ReadOnly - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\NoahabcMarket - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\Chart.js" />
     <Content Include="Scripts\Chart.min.js" />
@@ -1495,7 +1512,6 @@
     <Folder Include="Areas\Admin\Views\User\" />
     <Folder Include="Areas\Member\Data\" />
     <Folder Include="Areas\Member\Views\Shared\" />
-    <Folder Include="Images\products\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="abcMarketModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="abcMarketModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Carts">
           <Key>
             <PropertyRef Name="rowid" />
@@ -179,10 +179,26 @@
           <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="abcMarketModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Carts">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lot_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="user_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="product_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="product_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="product_spec" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="qty" Type="Int32" />
+          <Property Name="price" Type="Int32" />
+          <Property Name="amount" Type="Int32" />
+          <Property Name="create_time" Type="DateTime" Precision="3" />
+        </EntityType>
         <EntityType Name="Categorys">
           <Key>
             <PropertyRef Name="rowid" />
@@ -191,6 +207,37 @@
           <Property Name="parentid" Type="Int32" />
           <Property Name="category_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="category_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Collects">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="product_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="product_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="Int32" />
+          <Property Name="create_time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="order_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="order_date" Type="DateTime" Precision="3" />
+          <Property Name="order_status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="user_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="payment_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="shipping_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="receive_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="receive_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="receive_address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="totals" Type="Int32" />
+          <Property Name="remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="order_guid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="order_closed" Type="Int32" />
+          <Property Name="order_validate" Type="Int32" />
         </EntityType>
         <EntityType Name="OrdersDetail">
           <Key>
@@ -214,6 +261,34 @@
           <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="mno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="mname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="categoryid" Type="Int32" />
+          <Property Name="category_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="istop" Type="Int32" />
+          <Property Name="ishot" Type="Int32" />
+          <Property Name="issale" Type="Int32" />
+          <Property Name="product_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="product_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="product_spec" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="price_sale" Type="Int32" />
+          <Property Name="price_cost" Type="Int32" />
+          <Property Name="price_discont" Type="Int32" />
+          <Property Name="remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ProductsProperty">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="product_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="property_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="text_value" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Propertys">
@@ -269,100 +344,42 @@
           <Property Name="isvarify" Type="Int32" />
         </EntityType>
         <EntityContainer Name="abcMarketEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Carts" EntityType="Self.Carts" />
           <EntitySet Name="Categorys" EntityType="Self.Categorys" />
+          <EntitySet Name="Collects" EntityType="Self.Collects" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" />
           <EntitySet Name="OrdersDetail" EntityType="Self.OrdersDetail" />
           <EntitySet Name="Payments" EntityType="Self.Payments" />
+          <EntitySet Name="Products" EntityType="Self.Products" />
+          <EntitySet Name="ProductsProperty" EntityType="Self.ProductsProperty" />
           <EntitySet Name="Propertys" EntityType="Self.Propertys" />
           <EntitySet Name="Roles" EntityType="Self.Roles" />
           <EntitySet Name="Shippings" EntityType="Self.Shippings" />
           <EntitySet Name="Status" EntityType="Self.Status" />
           <EntitySet Name="Users" EntityType="Self.Users" />
-          <EntitySet Name="ProductsProperty" EntityType="abcMarketModel.ProductsProperty" />
-          <EntitySet Name="Orders" EntityType="abcMarketModel.Orders" />
-          <EntitySet Name="Carts" EntityType="abcMarketModel.Carts" />
-          <EntitySet Name="Collects" EntityType="abcMarketModel.Collects" />
-          <EntitySet Name="Products" EntityType="abcMarketModel.Products" />
         </EntityContainer>
-        <EntityType Name="ProductsProperty">
-          <Key>
-            <PropertyRef Name="rowid" />
-          </Key>
-          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="product_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="property_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="text_value" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Orders">
-          <Key>
-            <PropertyRef Name="rowid" />
-          </Key>
-          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="order_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="order_date" Type="DateTime" Precision="3" />
-          <Property Name="order_status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="user_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="payment_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="shipping_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="receive_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="receive_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="receive_address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="totals" Type="Int32" />
-          <Property Name="remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="order_guid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="order_closed" Type="Int32" />
-          <Property Name="order_validate" Type="Int32" />
-        </EntityType>
-        <EntityType Name="Carts">
-          <Key>
-            <PropertyRef Name="rowid" />
-          </Key>
-          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="lot_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="user_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="product_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="product_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="product_spec" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="qty" Type="Int32" />
-          <Property Name="price" Type="Int32" />
-          <Property Name="amount" Type="Int32" />
-          <Property Name="create_time" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityType Name="Collects">
-          <Key>
-            <PropertyRef Name="rowid" />
-          </Key>
-          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="user_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="product_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="product_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="price" Type="Int32" />
-          <Property Name="create_time" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityType Name="Products">
-          <Key>
-            <PropertyRef Name="rowid" />
-          </Key>
-          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="categoryid" Type="Int32" />
-          <Property Name="category_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="istop" Type="Int32" />
-          <Property Name="ishot" Type="Int32" />
-          <Property Name="issale" Type="Int32" />
-          <Property Name="product_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="product_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="product_spec" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="price_sale" Type="Int32" />
-          <Property Name="price_cost" Type="Int32" />
-          <Property Name="price_discont" Type="Int32" />
-          <Property Name="remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="abcMarketModelStoreContainer" CdmEntityContainer="abcMarketEntities">
+          <EntitySetMapping Name="Carts">
+            <EntityTypeMapping TypeName="abcMarketModel.Carts">
+              <MappingFragment StoreEntitySet="Carts">
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+                <ScalarProperty Name="lot_no" ColumnName="lot_no" />
+                <ScalarProperty Name="user_email" ColumnName="user_email" />
+                <ScalarProperty Name="product_no" ColumnName="product_no" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="product_spec" ColumnName="product_spec" />
+                <ScalarProperty Name="qty" ColumnName="qty" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="create_time" ColumnName="create_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Categorys">
             <EntityTypeMapping TypeName="abcMarketModel.Categorys">
               <MappingFragment StoreEntitySet="Categorys">
@@ -370,6 +387,39 @@
                 <ScalarProperty Name="parentid" ColumnName="parentid" />
                 <ScalarProperty Name="category_no" ColumnName="category_no" />
                 <ScalarProperty Name="category_name" ColumnName="category_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Collects">
+            <EntityTypeMapping TypeName="abcMarketModel.Collects">
+              <MappingFragment StoreEntitySet="Collects">
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+                <ScalarProperty Name="user_email" ColumnName="user_email" />
+                <ScalarProperty Name="product_no" ColumnName="product_no" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="create_time" ColumnName="create_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="abcMarketModel.Orders">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+                <ScalarProperty Name="order_no" ColumnName="order_no" />
+                <ScalarProperty Name="order_date" ColumnName="order_date" />
+                <ScalarProperty Name="order_status" ColumnName="order_status" />
+                <ScalarProperty Name="user_email" ColumnName="user_email" />
+                <ScalarProperty Name="payment_no" ColumnName="payment_no" />
+                <ScalarProperty Name="shipping_no" ColumnName="shipping_no" />
+                <ScalarProperty Name="receive_name" ColumnName="receive_name" />
+                <ScalarProperty Name="receive_email" ColumnName="receive_email" />
+                <ScalarProperty Name="receive_address" ColumnName="receive_address" />
+                <ScalarProperty Name="totals" ColumnName="totals" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="order_guid" ColumnName="order_guid" />
+                <ScalarProperty Name="order_closed" ColumnName="order_closed" />
+                <ScalarProperty Name="order_validate" ColumnName="order_validate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -395,6 +445,36 @@
                 <ScalarProperty Name="rowid" ColumnName="rowid" />
                 <ScalarProperty Name="mno" ColumnName="mno" />
                 <ScalarProperty Name="mname" ColumnName="mname" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="abcMarketModel.Products">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+                <ScalarProperty Name="categoryid" ColumnName="categoryid" />
+                <ScalarProperty Name="category_name" ColumnName="category_name" />
+                <ScalarProperty Name="istop" ColumnName="istop" />
+                <ScalarProperty Name="ishot" ColumnName="ishot" />
+                <ScalarProperty Name="issale" ColumnName="issale" />
+                <ScalarProperty Name="product_no" ColumnName="product_no" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="product_spec" ColumnName="product_spec" />
+                <ScalarProperty Name="price_sale" ColumnName="price_sale" />
+                <ScalarProperty Name="price_cost" ColumnName="price_cost" />
+                <ScalarProperty Name="price_discont" ColumnName="price_discont" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductsProperty">
+            <EntityTypeMapping TypeName="abcMarketModel.ProductsProperty">
+              <MappingFragment StoreEntitySet="ProductsProperty">
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+                <ScalarProperty Name="product_no" ColumnName="product_no" />
+                <ScalarProperty Name="property_no" ColumnName="property_no" />
+                <ScalarProperty Name="text_value" ColumnName="text_value" />
                 <ScalarProperty Name="remark" ColumnName="remark" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -453,85 +533,6 @@
                 <ScalarProperty Name="remark" ColumnName="remark" />
                 <ScalarProperty Name="varify_code" ColumnName="varify_code" />
                 <ScalarProperty Name="isvarify" ColumnName="isvarify" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ProductsProperty">
-            <EntityTypeMapping TypeName="abcMarketModel.ProductsProperty">
-              <MappingFragment StoreEntitySet="ProductsProperty">
-                <ScalarProperty Name="remark" ColumnName="remark" />
-                <ScalarProperty Name="text_value" ColumnName="text_value" />
-                <ScalarProperty Name="property_no" ColumnName="property_no" />
-                <ScalarProperty Name="product_no" ColumnName="product_no" />
-                <ScalarProperty Name="rowid" ColumnName="rowid" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Orders">
-            <EntityTypeMapping TypeName="abcMarketModel.Orders">
-              <MappingFragment StoreEntitySet="Orders">
-                <ScalarProperty Name="order_validate" ColumnName="order_validate" />
-                <ScalarProperty Name="order_closed" ColumnName="order_closed" />
-                <ScalarProperty Name="order_guid" ColumnName="order_guid" />
-                <ScalarProperty Name="remark" ColumnName="remark" />
-                <ScalarProperty Name="totals" ColumnName="totals" />
-                <ScalarProperty Name="receive_address" ColumnName="receive_address" />
-                <ScalarProperty Name="receive_email" ColumnName="receive_email" />
-                <ScalarProperty Name="receive_name" ColumnName="receive_name" />
-                <ScalarProperty Name="shipping_no" ColumnName="shipping_no" />
-                <ScalarProperty Name="payment_no" ColumnName="payment_no" />
-                <ScalarProperty Name="user_email" ColumnName="user_email" />
-                <ScalarProperty Name="order_status" ColumnName="order_status" />
-                <ScalarProperty Name="order_date" ColumnName="order_date" />
-                <ScalarProperty Name="order_no" ColumnName="order_no" />
-                <ScalarProperty Name="rowid" ColumnName="rowid" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Carts">
-            <EntityTypeMapping TypeName="abcMarketModel.Carts">
-              <MappingFragment StoreEntitySet="Carts">
-                <ScalarProperty Name="create_time" ColumnName="create_time" />
-                <ScalarProperty Name="amount" ColumnName="amount" />
-                <ScalarProperty Name="price" ColumnName="price" />
-                <ScalarProperty Name="qty" ColumnName="qty" />
-                <ScalarProperty Name="product_spec" ColumnName="product_spec" />
-                <ScalarProperty Name="product_name" ColumnName="product_name" />
-                <ScalarProperty Name="product_no" ColumnName="product_no" />
-                <ScalarProperty Name="user_email" ColumnName="user_email" />
-                <ScalarProperty Name="lot_no" ColumnName="lot_no" />
-                <ScalarProperty Name="rowid" ColumnName="rowid" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Collects">
-            <EntityTypeMapping TypeName="abcMarketModel.Collects">
-              <MappingFragment StoreEntitySet="Collects">
-                <ScalarProperty Name="create_time" ColumnName="create_time" />
-                <ScalarProperty Name="price" ColumnName="price" />
-                <ScalarProperty Name="product_name" ColumnName="product_name" />
-                <ScalarProperty Name="product_no" ColumnName="product_no" />
-                <ScalarProperty Name="user_email" ColumnName="user_email" />
-                <ScalarProperty Name="rowid" ColumnName="rowid" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="abcMarketModel.Products">
-              <MappingFragment StoreEntitySet="Products">
-                <ScalarProperty Name="remark" ColumnName="remark" />
-                <ScalarProperty Name="price_discont" ColumnName="price_discont" />
-                <ScalarProperty Name="price_cost" ColumnName="price_cost" />
-                <ScalarProperty Name="price_sale" ColumnName="price_sale" />
-                <ScalarProperty Name="product_spec" ColumnName="product_spec" />
-                <ScalarProperty Name="product_name" ColumnName="product_name" />
-                <ScalarProperty Name="product_no" ColumnName="product_no" />
-                <ScalarProperty Name="issale" ColumnName="issale" />
-                <ScalarProperty Name="ishot" ColumnName="ishot" />
-                <ScalarProperty Name="istop" ColumnName="istop" />
-                <ScalarProperty Name="category_name" ColumnName="category_name" />
-                <ScalarProperty Name="categoryid" ColumnName="categoryid" />
-                <ScalarProperty Name="rowid" ColumnName="rowid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
